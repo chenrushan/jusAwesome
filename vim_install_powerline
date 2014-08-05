@@ -1,0 +1,21 @@
+1. yaourt -S python-powerline-git
+
+   or https://github.com/Lokaltog/powerline
+
+   `./setup.py install --user` to install for current user only
+
+2. add config to .vimrc
+
+   set rtp+=/usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
+
+3. Add config to ~/.bashrc
+
+   . /usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/bash/powerline.sh
+
+4. https://github.com/Lokaltog/powerline-fontpatcher
+
+   ./scripts/powerline-fontpatcher /usr/share/fonts/TTF/Monaco_Linux.ttf
+
+   cp Monaco\ for\ Powerline.ttf ../.fonts/
+
+   fc-cache -vf ~/.fonts/
