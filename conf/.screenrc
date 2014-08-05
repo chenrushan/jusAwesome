@@ -1,0 +1,31 @@
+startup_message off
+chdir
+altscreen on
+defscrollback 10000
+
+# Default screens
+screen -t bash     0
+screen -t bash     1
+screen -t bash     2
+screen -t bash     3
+screen -t bash     4
+
+select 0
+
+bindkey "^[;" prev
+bindkey "^['" next
+
+hardstatus alwaysfirstline
+#hardstatus string "%{+b wk}[%H%? | %{+B KG} %1` %{-}%?] %-Lw%{=bB} %n*%f%t%?(%u)%? %{-}%+Lw %=[%Y-%m-%d,%D,%c:%s]"
+
+# no host and time and date
+hardstatus string "%{+b wk}%-Lw%{=bB} %n*%f%t%?(%u)%? %{-}%+Lw"
+
+# ------------------------------------------------------------
+# If vim show different color between local machine and remote server's screen,
+# uncomment the following lines in your remote server's .screenrc:
+#
+# attrcolor b ".I"
+# termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# defbce "on"
+# ------------------------------------------------------------

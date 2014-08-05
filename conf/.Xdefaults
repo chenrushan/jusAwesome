@@ -1,0 +1,65 @@
+URxvt.iconFile:             /usr/share/icons/hicolor/scalable/apps/urxvt_icon
+URxvt.foreground:           white
+URxvt.geometry:             169x41
+URxvt.fading:               0
+URxvt.saveLines:            10000
+URxvt.internalBorder:       3
+URxvt.lineSpace:            0
+URxvt.cursorBlink:          false
+URxvt.scrollBar:            false
+URxvt.urlLauncher:          chromium
+
+! urxvt clipboard
+URxvt.perl-ext-common:      clipboard
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+ 
+! enable real transparency
+URxvt.depth:                32
+URxvt.background:           rgba:2222/2222/2222/dddd
+URxvt.transparent:          false
+
+! fonts
+URxvt.allow_bold:           false
+URxvt*font:                 xft:monaco-10,xft:ttf-arphic-ukai-8
+URxvt*letterSpace:          -1
+ 
+! URxvt color configuration
+! black
+*color0:                    #2E3436
+*color8:                    #555753
+! red
+*color1:                    #a40000
+*color9:                    #EF2929
+! green
+*color2:                    #4E9A06
+*color10:                   #8AE234
+! yellow
+*color3:                    #C4A000
+*color11:                   #FCE94F
+! blue
+*color4:                    #3465A4
+*color12:                   #729FCF
+! purple
+*color5:                    #75507B
+*color13:                   #AD7FA8
+! orange
+*color6:                    #ce5c00
+*color14:                   #fcaf3e
+! white
+*color7:                    #babdb9
+*color15:                   #EEEEEC
+
+message.geometry:           69x6
+message.font:               -*-terminus-*-*-*-*-12-*-*-*-*-*-iso8859-*
+message.boldfont:           -*-terminus-*-*-*-*-*-*-*-*-*-*-iso8859-*
+message.letterSpace:        0
+message.cursorColor:        0
+message.background:         [60]#825031
+
+message2.geometry:          62x6
+message2.font:              -*-terminus-*-*-*-*-12-*-*-*-*-*-iso8859-*
+message2.boldfont:          -*-terminus-*-*-*-*-*-*-*-*-*-*-iso8859-*
+message2.letterSpace:       0
+message2.cursorColor:       0
+message2.background:        [60]#3f827d
