@@ -29,7 +29,7 @@ Install on a server which you can only install in your home directory
    ./configure --prefix=...
    make && make install
 
-   vim need to enable python2, while python3 is used to setup powerline
+   vim must be compiled with --enable-pythoninterp and set --with-python-config-dir with your local python config, while python3 is used to intall powerline
 
 2. compile vim7.4 with (no need to --enable-python3interp)
 
