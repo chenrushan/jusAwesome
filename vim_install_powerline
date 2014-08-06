@@ -19,3 +19,27 @@
    cp Monaco\ for\ Powerline.ttf ../.fonts/
 
    fc-cache -vf ~/.fonts/
+
+----------
+
+Install on a server which you can only install in your home directory
+
+1. install both python2 and python3 from source
+
+   ./configure --prefix=...
+   make && make install
+
+   vim need to enable python2, while python3 is used to setup powerline
+
+2. compile vim7.4 with (no need to --enable-python3interp)
+
+   LD_LIBRARY_PATH=/home/renqing.crs/python/lib/ PATH=/home/renqing.crs/python/bin/:$PATH ./configure --enable-pythoninterp --with-features=huge --with-python-config-dir=/home/renqing.crs/python/lib/python2.7/config/ --prefix /home/renqing.crs/vim/
+
+3. install powerline with python3.4
+
+   /home/renqing.crs/python/bin/python3 ./setup.py build
+   /home/renqing.crs/python/bin/python3 ./setup.py install --user
+
+4. modify .vimrc
+
+   set rtp+=/home/renqing.crs/.local/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
