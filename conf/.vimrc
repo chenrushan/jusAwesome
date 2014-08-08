@@ -267,6 +267,7 @@ set tags=./tags,../tags,tags
 set tags+=~/.vim/tags/ctags
 set completeopt=menuone,menu,longest
 set complete=.,w,b,u
+set backspace=indent,eol,start
 
 lan C
 syntax on

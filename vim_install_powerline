@@ -45,3 +45,5 @@ Install on a server which you can only install in your home directory
 4. modify .vimrc
 
    set rtp+=/home/renqing.crs/.local/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
+
+5. you may need to `cp ~/.local/bin/ ~/.local/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/scripts`, otherwise bash can't work with powerline
