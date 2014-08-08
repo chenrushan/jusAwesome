@@ -24,6 +24,8 @@
 
 Install on a server which you can only install in your home directory
 
+ALL prefix can be set to ~/.local/ which is a local version of /usr/ and /usr/local/
+
 1. install both python2 and python3 from source
 
    ./configure --prefix=...
