@@ -49,3 +49,18 @@ ALL prefix can be set to ~/.local/ which is a local version of /usr/ and /usr/lo
    set rtp+=/home/renqing.crs/.local/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
 
 5. you may need to `cp ~/.local/bin/ ~/.local/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/scripts`, otherwise bash can't work with powerline
+
+----------
+
+TROUBLESHOOTING
+
+1. In case you found error
+
+    ...
+    bash: PROMPT_COMMAND: line 3: syntax error near unexpected token `;`
+    ...
+
+    SOLUTION:
+
+    add 'unset PROMPT_COMMAND' to the end of ~/.bash_profile
+
