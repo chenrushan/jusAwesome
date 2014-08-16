@@ -1,14 +1,14 @@
 xcompmgr -cCFf &
-tint2 &
-conky &
-feh --bg-scale /home/juscodit/.wallpaper.jpg
+# tint2 &
+# conky &
+# feh --bg-scale /home/juscodit/.wallpaper.jpg
 
-# export the following variables so that applications can work with SCIM
-export XMODIFIERS="@im=SCIM"
-export GTK_IM_MODULE="scim"
-export QT_IM_MODULE="scim"
+# export the following variables so that applications can work with xsunpinyin
+export XMODIFIERS="@im=xsunpinyin"
+export GTK_IM_MODULE="xim"
+export QT_IM_MODULE="xim"
 
-scim -d &
+xsunpinyin -d &
 
 dropboxd &
 
