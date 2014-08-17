@@ -74,7 +74,8 @@ graphics   = "gimp"
 mail       = terminal .. " -e mutt "
 iptraf     = terminal .. " -g 180x54-20+34 -e sudo iptraf-ng -i all "
 musicplr   = terminal .. " -g 130x34-320+16 -e ncmpcpp "
-win        = "virtualbox --startvm winxp --fullscreen"
+win        = "virtualbox --startvm winxp"
+inkscape   = "inkscape"
 
 local layouts = {
     awful.layout.suit.floating,
@@ -454,6 +455,10 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ altkey, "Shift"   }, "l",      function () awful.tag.incmwfact( 0.05)     end),
     awful.key({ altkey, "Shift"   }, "h",      function () awful.tag.incmwfact(-0.05)     end),
+    -- awful.key({ modkey, "Shift"   }, "l",      function () awful.tag.incnmaster(-1)       end),
+    -- awful.key({ modkey, "Shift"   }, "h",      function () awful.tag.incnmaster( 1)       end),
+    awful.key({ modkey,  "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,  "Shift"   }, "h",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Control" }, "l",      function () awful.tag.incncol(-1)          end),
     awful.key({ modkey, "Control" }, "h",      function () awful.tag.incncol( 1)          end),
     awful.key({ modkey,           }, "space",  function () awful.layout.inc(layouts,  1)  end),
@@ -518,10 +523,13 @@ globalkeys = awful.util.table.join(
             mpdwidget.update()
         end),
 
+    -- Copy to clipboard
+    -- awful.key({ modkey }, "c", function () os.execute("xsel -p -o | xsel -i -b") end),
+
     -- User programs
     awful.key({ modkey }, "c", function () awful.util.spawn(browser) end),
     awful.key({ modkey }, "w", function () awful.util.spawn(win) end),
-    awful.key({ modkey }, "i", function () awful.util.spawn(browser2) end),
+    awful.key({ modkey }, "i", function () awful.util.spawn(inkscape) end),
     awful.key({ modkey }, "s", function () awful.util.spawn(gui_editor) end),
     awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
 
@@ -533,10 +541,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end),
-
-    awful.key({ modkey,  "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,  "Shift"   }, "h",     function () awful.tag.incmwfact(-0.05)    end)
+              end)
 )
 
 clientkeys = awful.util.table.join(
@@ -630,12 +635,18 @@ awful.rules.rules = {
     { rule = { instance = "plugin-container" },
           properties = { tag = tags[1][1] } },
 
-	  { rule = { class = "Gimp" },
+    { rule = { class = "Gimp" },
      	    properties = { tag = tags[1][4] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized_horizontal = true,
                          maximized_vertical = true } },
+
+    { rule = { class = "Google-chrome-stable" },
+          properties = { tag = tags[1][2] } },
+
+    { rule = { class = "VirtualBox" },
+          properties = { tag = tags[1][3] } },
 }
 -- }}}
 
