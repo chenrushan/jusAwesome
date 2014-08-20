@@ -253,7 +253,6 @@ set incsearch
 set mousehide
 set nobackup
 set dictionary+=/usr/share/dict/words
-set textwidth=80
 set fileencodings=ucs-bom,utf-8,gb2312
 set laststatus=2
 " this will facilitate the use of tags file when programming, since
@@ -268,6 +267,8 @@ set tags+=~/.vim/tags/ctags
 set completeopt=menuone,menu,longest
 set complete=.,w,b,u
 set backspace=indent,eol,start
+" set a mark on column 80
+set colorcolumn=80
 
 lan C
 syntax on
@@ -362,8 +363,8 @@ let OmniCpp_MayCompleteArrow    = 1
 let OmniCpp_MayCompleteScope    = 1
 
 "set background=dark
-"set t_Co=16
-colorscheme 256-jungle
+set t_Co=256
+colorscheme molokai
 "hi StatusLine ctermfg=7 ctermbg=0
 "hi StatusLineNC ctermfg=10 ctermbg=0
 "hi VertSplit ctermfg=0 ctermbg=0
@@ -378,12 +379,20 @@ function! FoldExpr(num)
     return foldlevel(a:num)
 endfunction
 
-set foldexpr=FoldExpr(v:lnum)
-set foldmethod=expr
-set foldenable
+" set foldexpr=FoldExpr(v:lnum)
+" set foldmethod=expr
+" set foldenable
 " open/close fold with space bar
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 
 "hi StatusLine cterm=none ctermbg=black ctermfg=blue
 "hi Cursorline cterm=NONE ctermbg=black
+
+" to ease html editing
+
+" insert <sub></sub> around some char
+let @s='i<>sub<>/sub,w'
+
+set rtp+=/usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
+
