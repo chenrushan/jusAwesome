@@ -293,8 +293,6 @@ function Inkscape()
 
 function Apps()
 {
-    # I choose scim over ibus, firefox over chrome, since they work
-    # much better and look much better than the other under openbox
     apps=(
         feh # image viewerh
         vim # editor
@@ -330,6 +328,8 @@ function Apps()
         valgrind # debugger
         clang # for auto-complete
         gpick # color picker
+        mpd # music player daemon
+        mpc # music player client
     )
     InstallPkg apps[@]
 
@@ -512,8 +512,8 @@ function CreateOpenboxEnv()
     Openbox
     Fonts
     Urxvt
-    Goagent
-    Conky
+    # Goagent
+    # Conky
     Xbacklight
     Apps
 
