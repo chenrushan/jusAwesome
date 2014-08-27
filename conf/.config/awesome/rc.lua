@@ -15,6 +15,10 @@ local beautiful = require("beautiful")
 local naughty   = require("naughty")
 local drop      = require("scratchdrop")
 local lain      = require("lain")
+
+-- thanks to https://github.com/z1lt0id/awesome for providing such
+-- awesome layout library
+layouts         = require("layouts")
 -- }}}
 
 -- {{{ Error handling
@@ -79,11 +83,19 @@ inkscape   = "inkscape"
 
 local layouts = {
     awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+    layouts.uselesstile,
+    layouts.termfair,
+    layouts.browse,
+    layouts.uselessfair,
+    layouts.centerwork,
 }
+-- local layouts = {
+--     awful.layout.suit.floating,
+--     awful.layout.suit.tile,
+--     awful.layout.suit.tile.bottom,
+--     awful.layout.suit.fair,
+--     awful.layout.suit.fair.horizontal,
+-- }
 -- }}}
 
 -- {{{ Tags
