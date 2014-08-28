@@ -656,10 +656,10 @@ awful.rules.rules = {
                          maximized_vertical = true } },
 
     { rule = { class = "Google-chrome-stable" },
-          properties = { tag = tags[1][2] } },
+          properties = { tag = tags[mouse.screen][2] } },
 
     { rule = { class = "VirtualBox" },
-          properties = { tag = tags[1][3] } },
+          properties = { tag = tags[mouse.screen][3] } },
 }
 -- }}}
 
