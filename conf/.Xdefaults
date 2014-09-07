@@ -8,6 +8,9 @@ URxvt.cursorBlink:          false
 URxvt.scrollBar:            false
 URxvt.urlLauncher:          chromium
 
+urxvt*internalBorder:       0
+urxvt*externalBorder:       0
+
 ! urxvt clipboard
 URxvt.perl-ext-common:      clipboard
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
