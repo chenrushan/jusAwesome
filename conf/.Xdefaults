@@ -1,7 +1,6 @@
 URxvt.iconFile:             /usr/share/icons/hicolor/scalable/apps/urxvt_icon
 URxvt.foreground:           white
-URxvt.geometry:             169x41
-URxvt.fading:               0
+URxvt.fading:               30
 URxvt.saveLines:            10000
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
@@ -16,12 +15,16 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
  
 ! enable real transparency
 URxvt.depth:                32
-URxvt.background:           rgba:2222/2222/2222/dddd
+URxvt.background:           rgba:2222/2222/2222/eeee
 URxvt.transparent:          false
 
 ! fonts
 URxvt.allow_bold:           false
-URxvt*font:                 xft:monaco-10,xft:ttf-arphic-ukai-8
+URxvt*font:                 xft:Monaco for Powerline:regular:size=10
+URxvt*imFont:               xft:Monaco for Powerline:regular:size=10
+URxvt*boldFont:             xft:Monaco for Powerline:bold:size=10
+URxvt*italicFont:           xft:Monaco for Powerline:italic:size=10
+URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=10
 URxvt*letterSpace:          -1
  
 ! URxvt color configuration
@@ -49,17 +52,3 @@ URxvt*letterSpace:          -1
 ! white
 *color7:                    #babdb9
 *color15:                   #EEEEEC
-
-message.geometry:           69x6
-message.font:               -*-terminus-*-*-*-*-12-*-*-*-*-*-iso8859-*
-message.boldfont:           -*-terminus-*-*-*-*-*-*-*-*-*-*-iso8859-*
-message.letterSpace:        0
-message.cursorColor:        0
-message.background:         [60]#825031
-
-message2.geometry:          62x6
-message2.font:              -*-terminus-*-*-*-*-12-*-*-*-*-*-iso8859-*
-message2.boldfont:          -*-terminus-*-*-*-*-*-*-*-*-*-*-iso8859-*
-message2.letterSpace:       0
-message2.cursorColor:       0
-message2.background:        [60]#3f827d
