@@ -10,17 +10,23 @@ theme                               = {}
 themes_dir                          = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker"
 theme.wallpaper                     = themes_dir .. "/wall.png"
 
-theme.font                          = "Terminus 9"
---theme.font                          = "Monaco 8"
+--theme.font                          = "Terminus 9"
+theme.font                          = "Monaco 8"
 theme.fg_normal                     = "#DDDDFF"
 theme.fg_focus                      = "#F0DFAF"
 theme.fg_urgent                     = "#CC9393"
 theme.bg_normal                     = "#1A1A1A"
 theme.bg_focus                      = "#313131"
 theme.bg_urgent                     = "#1A1A1A"
-theme.border_width                  = "0"
-theme.border_normal                 = "#3F3F3F"
-theme.border_focus                  = "#7F7F7F"
+theme.border_width                  = "1"
+
+-- 'green theme'
+theme.border_normal                 = "#3F5F3F"
+theme.border_focus                  = "#7FaF7F"
+
+-- 'gray/black theme'
+--theme.border_normal                 = "#3F3F3F"
+--theme.border_focus                  = "#7F7F7F"
 theme.border_marked                 = "#CC9393"
 theme.titlebar_bg_focus             = "#FFFFFF"
 theme.titlebar_bg_normal            = "#FFFFFF"
@@ -36,7 +42,7 @@ theme.awful_widget_margin_top       = 2
 theme.mouse_finder_color            = "#CC9393"
 theme.menu_height                   = "16"
 theme.menu_width                    = "140"
-theme.useless_gap_width             = 15
+theme.useless_gap_width             = 25
 
 theme.menu_submenu_icon             = themes_dir .. "/icons/submenu.png"
 theme.taglist_squares_sel           = themes_dir .. "/icons/square_sel.png"
