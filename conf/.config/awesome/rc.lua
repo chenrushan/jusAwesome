@@ -553,7 +553,10 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+              end),
+
+    -- Lock Screen
+    awful.key({ modkey }, "l", function () awful.util.spawn("xlock -mode pacman") end)
 )
 
 clientkeys = awful.util.table.join(

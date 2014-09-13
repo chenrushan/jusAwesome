@@ -18,7 +18,6 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
  
 ! enable real transparency
 URxvt.depth:                32
-
 !gray theme color
 !URxvt.background:           rgba:2222/2222/2222/eeee
 
@@ -28,11 +27,11 @@ URxvt.transparent:          false
 
 ! fonts
 URxvt.allow_bold:           false
-URxvt*font:                 xft:Monaco for Powerline:regular:size=9
-URxvt*imFont:               xft:Monaco for Powerline:regular:size=9
-URxvt*boldFont:             xft:Monaco for Powerline:bold:size=9
-URxvt*italicFont:           xft:Monaco for Powerline:italic:size=9
-URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=9
+URxvt*font:                 xft:Monaco for Powerline:regular:size=10
+URxvt*imFont:               xft:Monaco for Powerline:regular:size=10
+URxvt*boldFont:             xft:Monaco for Powerline:bold:size=10
+URxvt*italicFont:           xft:Monaco for Powerline:italic:size=10
+URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=10
 URxvt*letterSpace:          -1
  
 ! URxvt color configuration

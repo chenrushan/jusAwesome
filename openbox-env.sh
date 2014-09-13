@@ -330,6 +330,7 @@ function Apps()
         gpick # color picker
         mpd # music player daemon
         mpc # music player client
+        xlockmore # screen locker
     )
     InstallPkg apps[@]
 
