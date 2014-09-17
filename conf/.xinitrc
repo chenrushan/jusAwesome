@@ -1,4 +1,5 @@
-xcompmgr -cCFf &
+compton -b &
+# xcompmgr -cCFf &
 # tint2 &
 # conky &
 # feh --bg-scale /home/juscodit/.wallpaper.jpg
