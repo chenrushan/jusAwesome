@@ -1,4 +1,4 @@
-install gnome-themes-standard lxappearance
+install gnome-themes-standard lxappearance zukitwo-themes(aur)
 
 lxappearance can be used to configure both gtk-2.0 and gtk-3.0
 
