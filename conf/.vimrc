@@ -228,6 +228,8 @@ au BufNewFile *.tex call CrsLoadSkeleton("tex")
 au FileType tex,plaintex setlocal shiftwidth=4
 au FileType tex,plaintex setlocal tabstop=4
 au BufEnter *.c,*.pl,*.cpp,*.java inoremap <buffer> { <esc>:call CrsAddCurlyBraces()<cr>a
+au FileType python setlocal shiftwidth=2 tabstop=2
+au FileType java setlocal shiftwidth=2 tabstop=2
 
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
