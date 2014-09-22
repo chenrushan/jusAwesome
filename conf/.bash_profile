@@ -8,8 +8,8 @@
 # fi
 
 if [[ `pgrep startx` == "" ]]; then
+    sudo hwclock -s --localtime
     startx
-    #sudo hwclock -s --localtime
 fi
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
