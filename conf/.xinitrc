@@ -75,7 +75,7 @@ setxkbmap -option altwin:swap_alt_win
 
 xset +fp /usr/share/fonts/local
 xset fp rehash
+nm-applet &
 
-# don't use openbox, or the autostart will not be runned
-exec openbox-session
+exec awesome
 
