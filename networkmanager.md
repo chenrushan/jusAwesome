@@ -1,7 +1,7 @@
 1. sudo pacman -S networkmanager networkmanager-openconnect gnome-keyring network-manager-applet xfce4-notifyd
 
-    * networkmanager: the core
-    * networkmanager-openconnect: for VPN
+    * networkmanager: the service managing network under the hood
+    * networkmanager-openconnect: for cisco VPN
     * gnome-keyring: for password
     * network-manager-applet: applet in the systray
     * xfce4-notifyd: for notification
