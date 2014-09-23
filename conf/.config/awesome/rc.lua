@@ -52,7 +52,8 @@ function run_once(cmd)
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
-run_once("urxvtd")
+-- don't use urxvtd, use urxvt directly so that perl extension can be enabled
+-- run_once("urxvtd")
 run_once("unclutter")
 -- }}}
 
@@ -66,7 +67,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker/t
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "urxvtc"
+terminal   = "urxvt"
 editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
