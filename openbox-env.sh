@@ -251,21 +251,6 @@ function Fonts()
     xset fp rehash
 }
 
-function Urxvt()
-{
-    # install urxvt (use AUR version to enable icon)
-    urxvt=(rxvt-unicode-pixbuf)
-    InstallPkgAUR_Yaourt urxvt[@]
-
-    # copy & paste
-    pkgs=(xsel)
-    InstallPkg pkgs[@]
-    sudo cp conf/urxvt_clipboard /usr/lib/urxvt/perl/clipboard
-
-    # icon
-    sudo cp conf/urxvt_icon /usr/share/icons/hicolor/scalable/apps/
-}
-
 function Conky()
 {
     pkgs=(conky lm_sensors)
@@ -294,6 +279,8 @@ function Inkscape()
 function Apps()
 {
     apps=(
+        rxvt-unicode
+        xsel # copy & paste on command line
         feh # image viewerh
         vim # editor
         tint2 # a great panel with great document
@@ -512,7 +499,6 @@ function CreateOpenboxEnv()
     Yaourt
     Openbox
     Fonts
-    Urxvt
     # Goagent
     # Conky
     Xbacklight
