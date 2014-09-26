@@ -3,9 +3,6 @@
 " E-Mail: juscodit@gmail.com
 "*******************************************************************************
 
-" 1 for Linux, 2 for Cygwin 
-let Linux_or_Cygwin = 1
-
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                            define some functions
 "-------------------------------------------------------------------------------
@@ -274,33 +271,8 @@ set colorcolumn=80
 
 lan C
 syntax on
-"colorscheme peachpuff
 filetype plugin on
 runtime! ftplugin/man.vim
-
-" set for gvim
-if has("gui_running")
-        " set clipboard to be unnamed, so that all the deletes and yanks
-        " in Vim will automatically go to the clipboard. By default, "*
-        " is the canonical register for clipboard on Windows
-        set clipboard=unnamed 
-        set guioptions-=T " remove the toolbar
-        set guioptions-=m " remove the menubar
-        set guifont=Lucida_Console:h10
-endif
-
-if g:Linux_or_Cygwin == 2
-        set bs=2
-        set spellfile=/cygdrive/d/.vim/spell.en.add
-
-        " set fileencodings so that vim can correctly display file with
-        " utf8 encoding
-        set fileencodings=ucs-bom,utf8
-
-        " Set the command window height to 2 lines, to avoid pressing
-        " <Enter> to continue in many cases
-        "set cmdheight=2
-endif
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                               set hot keys
@@ -345,31 +317,17 @@ nnoremap <leader>t :sil !find -maxdepth 1 -name '*.[ch]' -print0 -o
 nnoremap <leader>T :call CrsCtagsProj()<cr>
 nnoremap <leader>m :call CrsCallMake()<cr>
 
-if g:Linux_or_Cygwin == 1
-        " this map causes the visual selected text yanked by pressing
-        " 'Y' to be sent to the PRIMARY selection, so that you can paste
-        " that text to X apps using middle mouse button
-        vnoremap Y y:call system("xclip -i", getreg("\""))<cr>
-endif
+" this map causes the visual selected text yanked by pressing
+" 'Y' to be sent to the PRIMARY selection, so that you can paste
+" that text to X apps using middle mouse button
+vnoremap Y y:call system("xclip -i", getreg("\""))<cr>
 
-"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-"                           set for omnicppcomplete
-"-------------------------------------------------------------------------------
-
-let OmniCpp_NamespaceSearch     = 1
-let OmniCpp_GlobalScopeSearch   = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " This should use with --fields=+S
-let OmniCpp_ShowAccess          = 1
-let OmniCpp_MayCompleteDot      = 1
-let OmniCpp_MayCompleteArrow    = 1
-let OmniCpp_MayCompleteScope    = 1
-
-"set background=dark
 set t_Co=256
 colorscheme molokai
-"hi StatusLine ctermfg=7 ctermbg=0
-"hi StatusLineNC ctermfg=10 ctermbg=0
-"hi VertSplit ctermfg=0 ctermbg=0
+" some modification to molokai
+
+" here's a list of prefered comment color: 65, 66, 72, 73, 101, 102, 109
+hi Comment cterm=italic,bold ctermfg=65
 
 function! FoldExpr(num)
     if getline(a:num) =~? '^\s*if (err ==.*$'
@@ -381,20 +339,17 @@ function! FoldExpr(num)
     return foldlevel(a:num)
 endfunction
 
-" set foldexpr=FoldExpr(v:lnum)
-" set foldmethod=expr
-" set foldenable
-" open/close fold with space bar
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
-
-"hi StatusLine cterm=none ctermbg=black ctermfg=blue
-"hi Cursorline cterm=NONE ctermbg=black
-
-" to ease html editing
-
-" insert <sub></sub> around some char
-let @s='i<>sub<>/sub,w'
+set concealcursor=inv
+set conceallevel=2
+let g:clang_auto_select=1
+let g:clang_complete_auto=1
+let g:clang_complete_copen=1
+let g:clang_complete_hl_errors=1
+let g:clang_snippets=1
+let g:clang_periodic_quickfix=0
+let g:clang_complete_copen=1
+let g:clang_snippets_engine='clang_complete'
+set completeopt=menu,longest
 
 set rtp+=/usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
-
