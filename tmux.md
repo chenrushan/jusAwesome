@@ -24,3 +24,20 @@ tmux 默认也不能正常显示 italic font，根源在于 terminfo 文件
     file for your terminal.
 
 也就是能不能显示 italic font 就看你有没有往 terminfo 加相应的功能。tmux 默认使用的 terminfo 是 screen，这个 terminfo 里没把这个功能加上，所以我们就需要创建一个带这个功能的 terminfo，具体过程如下，整个流程参考的是[这个](https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/)
+
+1. create a file named `screen-256color-italic.terminfo` which contains
+
+        # A screen-256color based TERMINFO that adds the escape sequences for italic.
+        screen-256color-italic|screen with 256 colors and italic,
+          sitm=\E[3m, ritm=\E[23m,
+          use=screen-256color,
+
+2. compile this file
+
+        tic screen-256color-italic.terminfo
+
+    this will create a file `~/.terminfo/s/screen-256color-italic`
+
+3. change the TERM setting of tmux by adding the following line to `~/.tmux.conf`
+
+        set -g default-terminal "screen-256color-italic"
