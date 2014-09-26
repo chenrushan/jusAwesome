@@ -1,6 +1,4 @@
-由于 screen 无法正常显示 italic font，我转向了 tmux
-
-tmux 默认也不能正常显示 italic font，根源在于 terminfo 文件
+由于 screen 无法正常显示 italic font，我转向了 tmux，tmux 默认也不能正常显示 italic font，根源在于 terminfo 文件
 
 根据 [tldp.org](http://tldp.org/HOWTO/Text-Terminal-HOWTO-16.html)，所谓的 terminfo 指的是
 
@@ -41,3 +39,10 @@ tmux 默认也不能正常显示 italic font，根源在于 terminfo 文件
 3. change the TERM setting of tmux by adding the following line to `~/.tmux.conf`
 
         set -g default-terminal "screen-256color-italic"
+
+对于 remote server，如果你想它跟你本地的表现一模一样，你就需要一个相同的 terminfo 文件，做法是首先导出本地的 terminfo 文件，运行命令
+
+    infocmp SOME_TERMINFO > SOME_TERMINFO.terminfo
+
+infocmp 会完整得把整个 terminfo 导出，我们上面创建的 terminfo 是在 screen-256color 基础添加了一个小功能，infocmp 则是完整得导出所有的东西。然后把这个 terminfo copy 到 remote server，同样在 remote server 运行 tic 命令即可，当然你的 .vimrc, .tmux.conf 也得是一样的了
+
