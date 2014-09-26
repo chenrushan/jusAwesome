@@ -1,6 +1,6 @@
 由于 screen 无法正常显示 italic font，我转向了 tmux
 
-tmux 默认也不能正常显示 italic font，根源在于 .terminfo 文件
+tmux 默认也不能正常显示 italic font，根源在于 terminfo 文件
 
 根据 [tldp.org](http://tldp.org/HOWTO/Text-Terminal-HOWTO-16.html)，所谓的 terminfo 指的是
 
@@ -23,3 +23,4 @@ tmux 默认也不能正常显示 italic font，根源在于 .terminfo 文件
     Thus a Linux package that doesn't require ncurses may still need a terminfo
     file for your terminal.
 
+也就是能不能显示 italic font 就看你有没有往 terminfo 加相应的功能。tmux 默认使用的 terminfo 是 screen，这个 terminfo 里没把这个功能加上，所以我们就需要创建一个带这个功能的 terminfo，具体过程如下，整个流程参考的是[这个](https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/)
