@@ -324,10 +324,13 @@ vnoremap Y y:call system("xclip -i", getreg("\""))<cr>
 
 set t_Co=256
 colorscheme molokai
+
 " some modification to molokai
 
 " here's a list of prefered comment color: 65, 66, 72, 73, 101, 102, 109
 hi Comment cterm=italic,bold ctermfg=65
+" make vim background transparent
+hi Normal ctermfg=252 ctermbg=none
 
 function! FoldExpr(num)
     if getline(a:num) =~? '^\s*if (err ==.*$'
