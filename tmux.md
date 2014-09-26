@@ -23,6 +23,10 @@
     Thus a Linux package that doesn't require ncurses may still need a terminfo
     file for your terminal.
 
+说白了就是 terminfo 决定了一个终端能做哪些事情，具有哪些能力
+
+termcap 就是 terminal capability 的简写，老的 termcap 文件把所有终端的配置都放在一个文件中，新的 terminfo 的方式则把不同的配置分到不同的文件中
+
 ----------
 
 因此能不能显示 italic font 就看你有没有往 terminfo 加相应的功能。tmux 默认使用的 terminfo 是 screen，这个 terminfo 里没把这个功能加上，所以我们就需要创建一个带这个功能的 terminfo，具体过程如下，整个流程参考的是[这个](https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/)
