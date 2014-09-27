@@ -244,6 +244,7 @@ function Fonts()
         ttf-monaco # favorite terminal font
         ttf-ms-fonts # to solve firefox font rendering problem on certain pages like Google
         proggyfonts # bitmap terminal font
+        ttf-vista-fonts # including consolas
     )
     InstallPkgAUR_Yaourt fonts[@]
 
@@ -285,14 +286,11 @@ function Apps()
         vim # editor
         tint2 # a great panel with great document
         firefox # web browser
-        screen
-        # scim # Chinese input
-        # scim-pinyin
-        sunpinyin
+        tmux # a replacement of screen
+        sunpinyin # replacement of scim and scim-pinyin
         sunpinyin-data
         flashplugin
         subversion
-        # lyx # latex word processor
         xorg-xprop # get window property by clicking on it
         wmctrl # enables you to control your WM from command line
         mplayer # video player
