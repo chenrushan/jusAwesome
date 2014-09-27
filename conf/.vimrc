@@ -330,7 +330,7 @@ colorscheme molokai
 " here's a list of prefered comment color: 65, 66, 72, 73, 101, 102, 109
 hi Comment cterm=italic,bold ctermfg=65
 " make vim background transparent
-hi Normal ctermfg=252 ctermbg=none
+hi Normal ctermfg=254 ctermbg=none
 
 function! FoldExpr(num)
     if getline(a:num) =~? '^\s*if (err ==.*$'
