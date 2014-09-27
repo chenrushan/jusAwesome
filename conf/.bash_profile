@@ -12,7 +12,7 @@ if [[ `pgrep startx` == "" ]]; then
     startx
 fi
 
-unset PROMPT_COMMAND
-
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+
+unset PROMPT_COMMAND
 
