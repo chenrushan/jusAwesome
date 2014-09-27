@@ -35,8 +35,7 @@ alias ls='ls --color=auto'
 alias mp='applauncher.sh mplayer 1 /usr/share/pixmaps/mplayer.png mplayer'
 alias zathura='applauncher.sh zathura 1 /usr/share/pixmaps/zathura.png none'
 alias l='ls -l'
-alias vpncnt='sudo openconnect --script /usr/bin/vpnc-script vpn.taobao.org -u renqing.crs --passwd-on-stdin'
-alias youdl='youtube-dl --proxy 127.0.0.1:8087'
+alias jekyll=/home/juscodit/.gem/ruby/2.0.0/bin/jekyll
 
 # ========================================
 # Comment for the following set-title command:
@@ -113,4 +112,18 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 set show-all-if-ambiguous on
+
+. /usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/bash/powerline.sh
+
+# start tmux as soon as bash is lauched by trying to attach to
+# existing deattached tmux session or start a new session
+if [[ -z "$TMUX" ]] ;then
+    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+    if [[ -z "$ID" ]] ;then # if not available create a new one
+        tmux new-session
+    else
+        tmux attach-session -t "$ID" # if available attach to it
+    fi
+fi
+
 
