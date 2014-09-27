@@ -56,3 +56,18 @@ termcap 就是 terminal capability 的简写，老的 termcap 文件把所有终
 
 infocmp 会完整得把整个 terminfo 导出，我们上面创建的 terminfo 是在 screen-256color 基础添加了一个小功能，infocmp 则是完整得导出所有的东西。然后把这个 terminfo copy 到 remote server，同样在 remote server 运行 tic 命令即可，当然你的 .vimrc, .tmux.conf 也得是一样的了
 
+----------
+
+tmux 默认启动的是 login shell，login shell 和 non-login shell 的不同参考下面 (from [here](http://serverfault.com/questions/261802/profile-vs-bash-profile-vs-bashrc))
+
+    .bash_profile and .bashrc are specific to bash, whereas .profile is read by many shells in the absence of their own shell-specific config files. (.profile was used by the original Bourne shell.) .bash_profile or .profile is read by login shells, along with .bashrc; subshells read only .bashrc. (Between job control and modern windowing systems, .bashrc by itself doesn't get used much. If you use screen or tmux, screens/windows usually run subshells instead of login shells.)
+    
+    The idea behind this was that one-time setup was done by .profile (or shell-specific version thereof), and per-shell stuff by .bashrc. For example, you generally only want to load environment variables once per session instead of getting them whacked any time you launch a subshell within a session, whereas you always want your aliases (which aren't propagated automatically like environment variables are).
+    
+    Other notable shell config files:
+    
+    /etc/bash_profile (fallback /etc/profile) is read before the user's .profile for system-wide configuration, and likewise /etc/bashrc in subshells (no fallback for this one). Many systems including Ubuntu also use an /etc/profile.d directory containing shell scriptlets, which are . (source)-ed from /etc/profile; the fragments here are per-shell, with *.sh applying to all Bourne/POSIX compatible shells and other extensions applying to that particular shell.
+
+由于 powerline 的缘故，我不希望 tmux 执行 .bash_profile，因此我就需要让 tmux start non-login shell，在 .tmux.conf 加入下面这行即可实现
+
+    set -g default-command bash
