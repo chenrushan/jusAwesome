@@ -1,6 +1,0 @@
-urxvt -name message &
-urxvt -name message2 &
-urxvt &
-firefox &
-virtualbox --startvm winxp --fullscreen &
-
