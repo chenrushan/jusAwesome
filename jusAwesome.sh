@@ -188,28 +188,23 @@ function DeleteSvnInfo()
 # Enviroment Construction Functions
 # ======================================================================
 
-function Openbox()
+function Awesome()
 {
     # install X server
     pkgs=(xorg-server xorg-server-utils xorg-xinit)
     InstallPkg pkgs[@]
 
-    # install openbox
-    pkgs=(openbox)
+    # install awesome wm
+    pkgs=(awesome)
     InstallPkg pkgs[@]
 
     # install composite manager
-    pkgs=(xcompmgr)
-    InstallPkg pkgs[@]
+    pkgs=(compton-git)
+    InstallPkgAUR_Yaourt pkgs[@]
 
-    # install packages used to config theme
-    # obconf is GUI used to modify ~/.config/openbox/rc.xml
-    pkgs=(obconf lxappearance gnome-themes-standard)
+    # install packages for gtk2, gtk3 theme
+    pkgs=(lxappearance gnome-themes-standard)
     InstallPkg pkgs[@]
-
-    # install openbox theme
-    local themeName=Arkid
-    InstallOpenboxTheme $themeName
 }
 
 # Yaourt is a great tool for installing package from AUR
@@ -250,12 +245,6 @@ function Fonts()
 
     xset +fp /usr/share/fonts/local
     xset fp rehash
-}
-
-function Conky()
-{
-    pkgs=(conky lm_sensors)
-    InstallPkg pkgs[@]
 }
 
 function Xbacklight()
@@ -312,6 +301,7 @@ function Apps()
         bash-completion # smart bash completion
         apvlv # lightweight vim-like pdf viewer
         virtualbox # virtual machine
+        virtualbox-host-modules
         qt4
         pidgin # for google talk
         imagemagick # contain "import" command which is used to take screenshot
@@ -325,6 +315,7 @@ function Apps()
         mpc # music player client
         xlockmore # screen locker
         google-chrome # replacement of firefox
+        lm_sensors
     )
     InstallPkg apps[@]
 
@@ -508,7 +499,6 @@ function CreateOpenboxEnv()
     Openbox
     Fonts
     # Goagent
-    # Conky
     Xbacklight
     Apps
 
