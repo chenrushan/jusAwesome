@@ -204,7 +204,7 @@ function Openbox()
 
     # install packages used to config theme
     # obconf is GUI used to modify ~/.config/openbox/rc.xml
-    pkgs=(obconf lxappearance)
+    pkgs=(obconf lxappearance gnome-themes-standard)
     InstallPkg pkgs[@]
 
     # install openbox theme
@@ -270,6 +270,15 @@ function Xbacklight()
     InstallPkg apps[@]
 }
 
+function NetworkManager()
+{
+    pkgs=(networkmanager networkmanager-openconnect gnome-keyring network-manager-applet xfce4-notifyd)
+    InstallPkg pkgs[@]
+
+    sudo systemctl enable NetworkManager.service
+    sudo systemctl start NetworkManager.service
+}
+
 # This app can convert latex functions to SVG format
 function Inkscape()
 {
@@ -285,7 +294,6 @@ function Apps()
         feh # image viewerh
         vim # editor
         tint2 # a great panel with great document
-        firefox # web browser
         tmux # a replacement of screen
         sunpinyin # replacement of scim and scim-pinyin
         sunpinyin-data
@@ -316,6 +324,7 @@ function Apps()
         mpd # music player daemon
         mpc # music player client
         xlockmore # screen locker
+        google-chrome # replacement of firefox
     )
     InstallPkg apps[@]
 
@@ -326,6 +335,7 @@ function Apps()
         kompozer # Kompozer is for WYSIWYG html editing
         grabc # command line tool to get pixel color on screen
         vim-clang-complete # for auto-complete
+        zukitwo-themes # many gtk2 and gtk3 themes
     )
     
     InstallPkgAUR_Yaourt aur_apps[@]
