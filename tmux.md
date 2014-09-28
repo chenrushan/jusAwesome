@@ -23,7 +23,7 @@
     Thus a Linux package that doesn't require ncurses may still need a terminfo
     file for your terminal.
 
-说白了就是 terminfo 决定了一个终端能做哪些事情，具有哪些能力
+说白了就是 terminfo 决定了一个终端能做哪些事情，具有哪些能力，并且告诉应用程序：“如果你想完成 XXX 任务，你需要发 YYY 命令给我”
 
 termcap 就是 terminal capability 的简写，老的 termcap 文件把所有终端的配置都放在一个文件中，新的 terminfo 的方式则把不同的配置分到不同的文件中
 
@@ -55,6 +55,24 @@ termcap 就是 terminal capability 的简写，老的 termcap 文件把所有终
     infocmp SOME_TERMINFO > SOME_TERMINFO.terminfo
 
 infocmp 会完整得把整个 terminfo 导出，我们上面创建的 terminfo 是在 screen-256color 基础添加了一个小功能，infocmp 则是完整得导出所有的东西。然后把这个 terminfo copy 到 remote server，同样在 remote server 运行 tic 命令即可，当然你的 .vimrc, .tmux.conf 也得是一样的了
+
+还要注意的是，如果 remote server 上的 bash 不是使用 terminfo 而是使用古老的 termcap 的话，你在 tmux 中配置 `set -g default-terminal "screen-256color-italic"` 会带来问题，表现就是你发现按 `Ctrl-l` 不再 clear screen，如果你一行命令敲得长了一点，终端的渲染就出问题等等，问题的原因是 bash 读取的是 termcap，而 termcap 中没有包含你的 screen-256color-italic，这样 bash 为了完成某某个渲染任务发出的命令就和 tmux 期望得到的不一样，因此很多任务就没法正常完成
+
+判断一个 bash 使用的是 terminfo 还是 termcap 只要运行 `ldd bash_command`，如果你看到像 
+
+    libtermcap.so.2 => /lib64/libtermcap.so.2
+
+则这个 bash 读的就是 termcap，如果看到
+
+    libncurses.so.5 => /usr/lib64/libncurses.so.5
+
+则这个 bash 读的就是 terminfo
+
+由于在 remote server 上通常你没有权限去改变系统使用的 bash，所以只能自己装一个在 home 目录下
+
+    ./configure --with-curses --prefix=/path/to/bash/ && make && make install
+
+这里 `--with-curses` 选项就是指定让 bash 使用 libncurses，不然默认还是使用 libtermcap
 
 ----------
 
