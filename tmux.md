@@ -80,6 +80,10 @@ infocmp 会完整得把整个 terminfo 导出，我们上面创建的 terminfo �
 
 * 在 `.tmux.conf` 中加入 `bind-key c new-window "/path/to/bash"` 这样每次新建一个窗口时都会运行你本地的 bash
 
+另外，如果希望每次登录都执行本地的 bash，则在 .bash_profile 中加入
+
+    exec /path/to/bash
+
 ----------
 
 tmux 默认启动的是 login shell，login shell 和 non-login shell 的不同参考下面 (from [here](http://serverfault.com/questions/261802/profile-vs-bash-profile-vs-bashrc))
