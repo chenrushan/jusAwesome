@@ -74,6 +74,12 @@ infocmp 会完整得把整个 terminfo 导出，我们上面创建的 terminfo �
 
 这里 `--with-curses` 选项就是指定让 bash 使用 libncurses，不然默认还是使用 libtermcap
 
+安装好 bash 后，就要让 tmux 执行这个 bash，需要做两个改动
+
+* 运行 tmux 时需要使用命令 `tmux new-session "/path/to/bash"`
+
+* 在 `.tmux.conf` 中加入 `bind-key c new-window "/path/to/bash"` 这样每次新建一个窗口时都会运行你本地的 bash
+
 ----------
 
 tmux 默认启动的是 login shell，login shell 和 non-login shell 的不同参考下面 (from [here](http://serverfault.com/questions/261802/profile-vs-bash-profile-vs-bashrc))
