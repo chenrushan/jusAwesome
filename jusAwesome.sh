@@ -3,28 +3,7 @@
 # Author: Rushan Chen
 # Email: juscodit@gmail.com
 
-# ======================================================================
-# Global Variables
-# ======================================================================
-
-confs=(
-    .xinitrc
-    .Xdefaults
-    .bashrc
-    .inputrc
-    .conkyrc
-    .vim
-    .vimrc
-    .screenrc
-    .config/fontconfig/fonts.conf
-    .config/tint2/tint2rc
-    .config/openbox/rc.xml
-    .config/openbox/autostart
-    .subversion/servers
-    .subversion/config
-    .subversion/vimdiff.sh
-    .wallpaper.jpg
-)
+appPath=$(pushd $(dirname $0) >/dev/null && pwd -P && popd >/dev/null)
 
 # ======================================================================
 # Util Functions
@@ -238,25 +217,12 @@ function Fonts()
     fonts=(
         ttf-monaco # favorite terminal font
         ttf-ms-fonts # to solve firefox font rendering problem on certain pages like Google
-        proggyfonts # bitmap terminal font
         ttf-vista-fonts # including consolas
     )
     InstallPkgAUR_Yaourt fonts[@]
 
     xset +fp /usr/share/fonts/local
     xset fp rehash
-}
-
-function Xbacklight()
-{
-    # xbacklight is used to ajust the brightness of backlight.
-    # It has the same effect as editing directly
-    # /sys/class/backlight/intel_backlight/brightness 
-    # NOTE that the value in this file will preserve to next bootup,
-    # so be careful not to set it as 0 which will cause you pain
-    # in the future
-    apps=(xorg-xbacklight)
-    InstallPkg apps[@]
 }
 
 function NetworkManager()
@@ -278,6 +244,7 @@ function Inkscape()
 function Apps()
 {
     apps=(
+        xorg-xbacklight # used to ajust the brightness of backlight
         rxvt-unicode
         xsel # copy & paste on command line
         feh # image viewerh
@@ -370,78 +337,9 @@ function Goagent()
     fi
 }
 
-# this function should be called at last
-oldConfDir=$HOME/.__old_conf__
 function CopyConf()
 {
-    mkdir $oldConfDir 2> /dev/null > /dev/null
-    for c in ${confs[@]}; do
-        local fullp=$HOME/$c
-
-        # save old conf to $oldConfDir
-        if [[ -e $fullp ]]; then
-            mv $fullp $oldConfDir
-            if [[ $? -ne 0 ]]; then
-                ExitFail "[ERROR]: fail to backup old conf $c"
-            fi
-        fi
-        Log "copy conf $c to $HOME ..."
-        local dest=$HOME/$c
-        local dir=`dirname $dest`
-        if [[ ! -e $dir ]]; then
-            mkdir -p $dir
-            if [[ $? -ne 0 ]]; then
-                ExitFail "[ERROR]: fail to create $dir"
-            fi
-        fi
-        cp -Lr conf/$c $dest
-        if [[ $? -ne 0 ]]; then
-            ExitFail "[ERROR]: fail to copy conf $c"
-        fi
-        # remove svn info
-        if [[ -d $dest ]]; then
-            DeleteSvnInfo $dest
-        fi
-    done
-}
-
-function CopyIcon()
-{
-    sudo cp conf/zathura.png /usr/share/pixmaps/
-}
-
-# ------------------------------------------------------------
-# PURPOSE of applauncher.sh:
-#
-# An app will not show icon if it doesn't set the _NET_WM_ICON property.
-# Without icon, it would be painful to distinguish between apps when you
-# press Alt-Tab. This script tries to solve this problem by setting icon
-# with xseticon after the app is launched. It has 4 arguments:
-#
-# 1. [app command]: the command to run this app from console
-# 2. [sleep time]: Since xseticon only work after the app window is created,
-#       if it takes 5 secs for an app to create its window, you should wait
-#       for 5 sec before you can call xseticon. You can conduct some
-#       experiments before setting this value
-# 3. [icon path]: absolute path of icon file
-# 4. [title]: title of app window
-# ------------------------------------------------------------
-function CopyLauncher()
-{
-    local dest=/usr/bin/applauncher.sh
-    if [[ -e $dest ]]; then
-        Log "=================================================="
-        Log "make a backup of old $dest to ${dest}.bak"
-        Log "=================================================="
-        sudo cp $dest ${dest}.bak
-        if [[ $? -ne 0 ]]; then
-            ExitFail "[ERROR]: fail to make backup of $dest"
-        fi
-    fi
-    sudo cp conf/applauncher.sh $dest
-    if [[ $? -ne 0 ]]; then
-        ExitFail "[ERROR]: fail to copy conf/applauncher.sh"
-    fi
+    cp -r $appPath/conf/.* $HOME
 }
 
 function TODO()
@@ -496,34 +394,14 @@ function CreateOpenboxEnv()
     fi
 
     Yaourt
-    Openbox
+    Awesome
     Fonts
-    # Goagent
-    Xbacklight
+    NetworkManager
     Apps
-
-    CopyLauncher
     CopyConf
-    CopyIcon
 
     TODO
 }
 
-function UpdateConf()
-{
-    for c in ${confs[@]}; do
-        rm -r conf/$c 2> /dev/null > /dev/null
-        dir=`dirname conf/$c`
-        if [[ ! -e $dir ]]; then
-            mkdir -p $dir
-        fi
-        cp -Lr $HOME/$c conf/$c
-    done
-}
-
-if [[ $1 == "__upconf" ]]; then
-    UpdateConf 
-else
-    CreateOpenboxEnv
-fi
+CreateOpenboxEnv
 
