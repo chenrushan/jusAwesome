@@ -7,3 +7,5 @@
 3. [Vim-fugitive](https://github.com/tpope/vim-fugitive)
 
 4. [ctrlp](https://github.com/kien/ctrlp.vim)
+
+5. [vim-scala](https://github.com/derekwyatt/vim-scala)
