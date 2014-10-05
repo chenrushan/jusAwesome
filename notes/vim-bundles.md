@@ -9,3 +9,10 @@
 4. [ctrlp](https://github.com/kien/ctrlp.vim)
 
 5. [vim-scala](https://github.com/derekwyatt/vim-scala)
+
+6. [vim-snippets](https://github.com/honza/vim-snippets)
+
+    should use with [ultisnips](https://github.com/SirVer/ultisnips)
+
+    vim-snippets just provides snippets
+    ultisnips is the engine
