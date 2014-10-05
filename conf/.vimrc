@@ -331,6 +331,7 @@ colorscheme molokai
 hi Comment cterm=italic,bold ctermfg=65
 " make vim background transparent
 hi Normal ctermfg=254 ctermbg=none
+hi ColorColumn ctermbg=238
 
 function! FoldExpr(num)
     if getline(a:num) =~? '^\s*if (err ==.*$'
@@ -356,3 +357,9 @@ let g:clang_snippets_engine='clang_complete'
 set completeopt=menu,longest
 
 set rtp+=/usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
+
+" enable persistent undo (work for vim >= 7.3)
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories, dir should be created manually
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
