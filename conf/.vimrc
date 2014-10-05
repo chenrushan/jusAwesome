@@ -7,14 +7,6 @@
 "                            define some functions
 "-------------------------------------------------------------------------------
 
-" This function loads skeleton file if it exists
-fun! CrsLoadSkeleton(file_suffix)
-        let file = $HOME . "/.vim/skeleton/skeleton." . a:file_suffix
-        if filereadable(file)
-                exe "0r " . file
-        endif
-endfun
-
 " This function adds curly braces according to different
 " situations
 fun! CrsAddCurlyBraces()
@@ -29,110 +21,6 @@ fun! CrsAddCurlyBraces()
       else
               exe "normal! i{\n}\n\<esc>kkA\n \<bs>\<esc>"
       endif
-endfun
-
-fun! CrsLastMod()
-        if line("$") > 20
-                let l = 20
-        else
-                let l = line("$")
-        endif
-        exe "1," . l . "s/Last modified:.*/Last modified: " 
-                         \ . strftime("%Y %b %d %X") . "/e"
-endfun
-
-" This function is responsible for compiling source file with gcc,
-" the position of final binary is decided in the following order:
-"    1. See if a directory called 'bin' exists on the upper level
-"    2. See if a directory called 'bin' exists on the same level
-"    3. Put the binary under the same directory as source file
-fun! CrsCompileWithGcc(opt)
-        let abso_path = expand("%:p:h")
-
-        " Check where to put the final binary
-        if isdirectory(abso_path . "/../bin/")
-                let bin_dir = abso_path . "/../bin/"
-        elseif isdirectory(abso_path . "/bin/")
-                let bin_dir = abso_path . "/bin/"
-        else
-                let bin_dir = abso_path . "/"
-        endif
-
-        let out_bin = bin_dir . expand("%:t:r:gs/_/-/")
-
-        " NOTE: Don't forget 'shellescape', every time you wanna invoke
-        "       some shell command from vim, don't forget to run 
-        "       shellescape first on the directory
-        exe "!gcc -o " . shellescape(out_bin) . " " . shellescape("%")
-                                                \ . " " . a:opt
-endfun
-
-fun! CrsCompileTex(opt)
-        let tex_dir_name = expand("%:p:h:t")
-        
-        if tex_dir_name == "tex"
-                let out_dir = expand("%:p:h:h")
-        else
-                let out_dir = expand("%:p:h")
-        endif
-
-        exe "!pdflatex -output-directory " . shellescape(out_dir) . " " .
-                \ shellescape("%") 
-        
-        if a:opt == ""
-                exe "!rm " . shellescape(out_dir) . "/*.{aux,log,out,toc}"
-        endif
-endfun
-
-" Call different CrsCompile function according to current filetype
-fun! CrsCompile(opt)
-        if &filetype == "tex" || &filetype == "plaintex"
-                call CrsCompileTex(a:opt)
-        elseif &filetype == "c"
-                call CrsCompileWithGcc(a:opt)
-        endif
-endfun
-
-" This function is almost the same as CrsCompileWithGcc() except for
-" the last statement, the reason is obvious, since you need to run the
-" program from the place where you put it when you compile the program
-fun! CrsRunCProg()
-        let abso_path = expand("%:p:h")
-
-        if isdirectory(abso_path . "/../bin/")
-                let bin_dir = abso_path . "/../bin/"
-        elseif isdirectory(abso_path . "/bin/")
-                let bin_dir = abso_path . "/bin/"
-        else
-                let bin_dir = abso_path . "/"
-        endif
-
-        let bin = bin_dir . "%:t:r:gs/_/-/"
-
-        exe "!" . shellescape(bin)
-endfun
-
-fun! CrsRunTex()
-        let pdfname = expand("%:p:t:s/tex$/pdf/")
-        let tex_dir_name = expand("%:p:h:t")
-
-        if tex_dir_name == "tex"
-                let pdf_dir = expand("%:p:h:h")
-        else
-                let pdf_dir = expand("%:p:h")
-        endif
-
-        exe "sil !" . g:crs_pdfapp . " " . shellescape(pdf_dir)
-                        \ . "/" . shellescape(pdfname) . "&"
-endfun
-
-" Execute according to current filetype
-fun! CrsRun()
-        if &filetype == "c"
-                call CrsRunCProg()
-        elseif &filetype == "tex" || &filetype == "plaintex"
-                call CrsRunTex()
-        endif
 endfun
 
 " This function creates a tag file in the root directory of a
@@ -166,43 +54,6 @@ fun! CrsCtagsProj()
             \. "xargs -0 ctags --fields=+aS --extra=+q --file-scope=no &"
 endfun
 
-fun! CrsSmartTab()
-       if pumvisible()
-               return "\<c-n>"
-       endif
-
-       let curidx = col('.')
-       let prevchar = strpart(getline('.'), curidx - 2, 1)
-
-       if prevchar == "/"
-               return "\<c-x>\<c-f>"
-       elseif prevchar =~ "^[ \t]*$"
-               return "\<tab>"
-       else
-               return "\<c-x>\<c-o>"
-endfun
-
-fun! CrsCallMake()
-        let prevwd = getcwd()
-
-        while filereadable("Makefile") == 0
-                cd ..
-                if getcwd() == "/"
-                        break
-                endif
-        endwhile
-
-        if getcwd() == "/"
-                echo "\nno Makefile is found\n"
-                return
-        endif
-
-        let maked = getcwd()
-
-        exec "cd " . prevwd
-        exec "sil !(cd " . maked . "; make)"
-endfun
-
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                         set some internal variables
 "-------------------------------------------------------------------------------
@@ -215,13 +66,7 @@ let mapleader=","
 "                              set some autocmds
 "-------------------------------------------------------------------------------
 
-au BufNewFile *.c call CrsLoadSkeleton("c")
-au BufNewFile *.py call CrsLoadSkeleton("py")
-au BufNewFile *.sh call CrsLoadSkeleton("sh")
-au BufNewFile *.java call CrsLoadSkeleton("java")
 au FileType c,cpp,java setlocal cindent
-au BufNewFile *.pl call CrsLoadSkeleton("pl")
-au BufNewFile *.tex call CrsLoadSkeleton("tex")
 au FileType tex,plaintex setlocal shiftwidth=4
 au FileType tex,plaintex setlocal tabstop=4
 au BufEnter *.c,*.pl,*.cpp,*.java,*.scala inoremap <buffer> { <esc>:call CrsAddCurlyBraces()<cr>a
@@ -291,20 +136,12 @@ imap <C-l> <esc><C-l>zza
 inoremap <C-e> <end>
 inoremap <C-b> <left>
 inoremap <C-f> <right>
-inoremap <expr> <tab> CrsSmartTab()
 
 nnoremap <C-p> :bprev<cr>
 nnoremap <C-n> :bnext<cr>
 nnoremap t :e 
 nnoremap <C-L> :nohl<cr><C-L>
 nnoremap <C-k> :bd<cr>
-nnoremap <f7> <esc>:setlocal spell spelllang=en_us<cr>
-nnoremap <f8> <esc>:setlocal nospell<cr>
-nnoremap <f2> <C-w>w
-nnoremap <f10> :w<cr>:call CrsCompile("-g")<cr>
-nnoremap <f11> :w<cr>:call CrsCompile("")<cr>
-nnoremap <f12> :call CrsRun()<cr>
-nnoremap <f1> :90vsp<cr><c-w><c-w>:new<cr><c-w>w:q<cr><c-w><c-w>
 nnoremap <leader>v :vsp<cr>
 nnoremap <leader>e :e 
 nnoremap <leader>q :q<cr>
@@ -313,13 +150,11 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>W :wq<cr>
 nnoremap <leader>s :saveas 
 nnoremap <leader>ac I/* <esc>A */<esc>
-nnoremap <leader>m :make %:r:gs/_/-/<cr>
 " since autochdir is set, we don't need to first cd to the directory
 " of current file before running ctags
 nnoremap <leader>t :sil !find -maxdepth 1 -name '*.[ch]' -print0 -o
          \ -name '*.cpp' -print0 \| xargs -0 ctags --fields=+aS --extra=+q &<cr>
 nnoremap <leader>T :call CrsCtagsProj()<cr>
-nnoremap <leader>m :call CrsCallMake()<cr>
 
 " this map causes the visual selected text yanked by pressing
 " 'Y' to be sent to the PRIMARY selection, so that you can paste
@@ -340,17 +175,6 @@ hi Comment cterm=italic,bold ctermfg=65
 " make vim background transparent
 hi Normal ctermfg=254 ctermbg=none
 hi ColorColumn ctermbg=238
-
-function! FoldExpr(num)
-    if getline(a:num) =~? '^\s*if (err ==.*$'
-        return '>1'
-    endif
-    if getline(a:num) =~? '^\s*}'
-        return '<1'
-    endif
-    return foldlevel(a:num)
-endfunction
-
 
 set concealcursor=inv
 set conceallevel=2
@@ -383,4 +207,12 @@ let g:airline_theme = 'murmur'
 " ctrlp config
 let g:ctrlp_map = '<c-i>'
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
