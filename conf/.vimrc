@@ -7,51 +7,35 @@
 "                            define some functions
 "-------------------------------------------------------------------------------
 
-" This function adds curly braces according to different
-" situations
-fun! CrsAddCurlyBraces()
-      let len = len(getline("."))
-      if len != 0
-              let cw = expand("<cword>") "get word under cursor
-              if cw =~ ")$"
-                      exe "normal! A {\n}\<esc>kA\n \<bs>\<esc>"
-              else
-                      exe "normal! a{}\<esc>h"
-              endif
-      else
-              exe "normal! i{\n}\n\<esc>kkA\n \<bs>\<esc>"
-      endif
-endfun
-
 " This function creates a tag file in the root directory of a
 " project, which contains only non-static tags present in
 " all source files, but for this function to work, a file called
 " '.crsproj' needs to be created in the root directory
 fun! CrsCtagsProj()
-       let prevwd = getcwd()
+  let prevwd = getcwd()
 
-       " first we cd to the directory containing currently-editing file
-       exec "cd " . expand("%:p:h")
+  " first we cd to the directory containing currently-editing file
+  exec "cd " . expand("%:p:h")
 
-       while filereadable(".crsproj") == 0
-               cd ..
-               if getcwd() == "/"
-                       break
-               endif
-       endwhile
+  while filereadable(".crsproj") == 0
+    cd ..
+    if getcwd() == "/"
+      break
+    endif
+  endwhile
 
-       let crsproj = getcwd()
+  let crsproj = getcwd()
 
-       " I assume that no project will use '/' as its root directory
-       if crsproj == "/"
-               echo "\nno .crsproj is found\n"
-               return
-       endif
+  " I assume that no project will use '/' as its root directory
+  if crsproj == "/"
+    echo "\nno .crsproj is found\n"
+    return
+  endif
 
-       exec "cd " . prevwd
-       exec "sil !cd " . crsproj . ";"
-            \. "find -name '*.[hc]' -print0 -o -name '*.cpp' -print0 |"
-            \. "xargs -0 ctags --fields=+aS --extra=+q --file-scope=no &"
+  exec "cd " . prevwd
+  exec "sil !cd " . crsproj . ";"
+        \. "find -name '*.[hc]' -print0 -o -name '*.cpp' -print0 |"
+        \. "xargs -0 ctags --fields=+aS --extra=+q --file-scope=no &"
 endfun
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -69,9 +53,9 @@ let mapleader=","
 au FileType c,cpp,java setlocal cindent
 au FileType tex,plaintex setlocal shiftwidth=4
 au FileType tex,plaintex setlocal tabstop=4
-au BufEnter *.c,*.pl,*.cpp,*.java,*.scala inoremap <buffer> { <esc>:call CrsAddCurlyBraces()<cr>a
 au FileType python setlocal shiftwidth=2 tabstop=2
 au FileType java setlocal shiftwidth=2 tabstop=2
+au FileType vim setlocal shiftwidth=2 tabstop=2
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                             some basic setting
