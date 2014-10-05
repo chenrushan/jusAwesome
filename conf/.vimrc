@@ -224,10 +224,9 @@ au BufNewFile *.pl call CrsLoadSkeleton("pl")
 au BufNewFile *.tex call CrsLoadSkeleton("tex")
 au FileType tex,plaintex setlocal shiftwidth=4
 au FileType tex,plaintex setlocal tabstop=4
-au BufEnter *.c,*.pl,*.cpp,*.java inoremap <buffer> { <esc>:call CrsAddCurlyBraces()<cr>a
+au BufEnter *.c,*.pl,*.cpp,*.java,*.scala inoremap <buffer> { <esc>:call CrsAddCurlyBraces()<cr>a
 au FileType python setlocal shiftwidth=2 tabstop=2
 au FileType java setlocal shiftwidth=2 tabstop=2
-
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                             some basic setting
@@ -236,7 +235,6 @@ au FileType java setlocal shiftwidth=2 tabstop=2
 set nocompatible
 set wildmenu
 set nu
-set nobackup
 set nowrap
 set showcmd
 set tabstop=4
@@ -269,9 +267,15 @@ set backspace=indent,eol,start
 " set a mark on column 80
 set colorcolumn=80
 
+" Turn backup off
+set nobackup
+set nowb
+set noswapfile
+
 lan C
 syntax on
 filetype plugin on
+filetype plugin indent on
 runtime! ftplugin/man.vim
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -379,3 +383,4 @@ let g:airline_theme = 'murmur'
 " ctrlp config
 let g:ctrlp_map = '<c-i>'
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+
