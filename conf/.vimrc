@@ -289,11 +289,11 @@ inoremap <C-b> <left>
 inoremap <C-f> <right>
 inoremap <expr> <tab> CrsSmartTab()
 
-nnoremap <C-p> gT
-nnoremap <C-n> gt
-nnoremap t :tabnew 
+nnoremap <C-p> :bprev<cr>
+nnoremap <C-n> :bnext<cr>
+nnoremap t :e 
 nnoremap <C-L> :nohl<cr><C-L>
-nnoremap <C-k> :tabclose<cr>
+nnoremap <C-k> :bd<cr>
 nnoremap <f7> <esc>:setlocal spell spelllang=en_us<cr>
 nnoremap <f8> <esc>:setlocal nospell<cr>
 nnoremap <f2> <C-w>w
@@ -321,6 +321,10 @@ nnoremap <leader>m :call CrsCallMake()<cr>
 " 'Y' to be sent to the PRIMARY selection, so that you can paste
 " that text to X apps using middle mouse button
 vnoremap Y y:call system("xclip -i", getreg("\""))<cr>
+
+" cursor move up/down one row instead of one line
+nnoremap j gj
+nnoremap k gk
 
 set t_Co=256
 colorscheme molokai
@@ -356,10 +360,22 @@ let g:clang_complete_copen=1
 let g:clang_snippets_engine='clang_complete'
 set completeopt=menu,longest
 
-set rtp+=/usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
+" set rtp+=/usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
 
 " enable persistent undo (work for vim >= 7.3)
 set undofile                " Save undo's after file closes
 set undodir=$HOME/.vim/undo " where to save undo histories, dir should be created manually
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
+
+" enable pathogen
+execute pathogen#infect()
+
+" airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'murmur'
+
+" ctrlp config
+let g:ctrlp_map = '<c-i>'
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
