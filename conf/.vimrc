@@ -100,6 +100,7 @@ set colorcolumn=80
 set nobackup
 set nowb
 set noswapfile
+set pastetoggle=<leader>e
 
 lan C
 syntax on
@@ -127,7 +128,6 @@ nnoremap t :e
 nnoremap <C-L> :nohl<cr><C-L>
 nnoremap <C-k> :bd<cr>
 nnoremap <leader>v :vsp<cr>
-nnoremap <leader>e :e 
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :qa<cr>
 nnoremap <leader>w :w<cr>
@@ -186,7 +186,7 @@ execute pathogen#infect()
 " airline config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'murmur'
+let g:airline_theme = 'bubblegum'
 
 " ctrlp config
 let g:ctrlp_map = '<c-i>'
