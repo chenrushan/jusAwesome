@@ -13,3 +13,6 @@
 [submodule "conf/.vim/bundle/vim-airline"]
 	path = conf/.vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+[submodule "conf/.vim/bundle/vim-scala"]
+	path = conf/.vim/bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala
