@@ -35,6 +35,7 @@
             cd ycm_build
             cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp"
             make ycm_support_libs
+            rm -r ycm_build
 
     If you want to enable clang-completer support, see [YouCompleteMe github](https://github.com/Valloric/YouCompleteMe)
 
