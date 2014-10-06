@@ -7,3 +7,6 @@
 [submodule "conf/.vim/bundle/ctrlp.vim"]
 	path = conf/.vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "conf/.vim/bundle/ultisnips"]
+	path = conf/.vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips
