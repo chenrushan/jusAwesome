@@ -41,7 +41,8 @@ endfun
 
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-"                         save sessions
+"                              vim sessions
+" (by http://www.terminally-incoherent.com/blog/2013/04/29/vim-sessions/)
 "-------------------------------------------------------------------------------
 
 let g:session_dir = $HOME."/.vim/sessions"

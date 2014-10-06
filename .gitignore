@@ -1,2 +1,3 @@
 *.swp
-*undo*
+conf/.vim/undo/**
+conf/.vim/sessions/**
