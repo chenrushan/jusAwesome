@@ -28,9 +28,15 @@
 
     * install cmake
 
-    * install YouCompleteMe
+    * Install YCM without clang-completer
 
-            ./install.sh --clang-completer
+            cd ~
+            mkdir ycm_build
+            cd ycm_build
+            cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp"
+            make ycm_support_libs
 
-    Reference: http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
+    If you want to enable clang-completer support, see [YouCompleteMe github](https://github.com/Valloric/YouCompleteMe)
+
+    Reference: [alexeyshmalko.com](http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/)
 
