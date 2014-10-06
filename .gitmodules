@@ -4,3 +4,6 @@
 [submodule "conf/.vim/bundle/vim-fugitive"]
 	path = conf/.vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "conf/.vim/bundle/ctrlp.vim"]
+	path = conf/.vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
