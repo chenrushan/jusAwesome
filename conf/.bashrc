@@ -27,7 +27,6 @@ alias utf8-encoding='export LC_CTYPE="zh_CN.utf8"; printf "\33]701;$LC_CTYPE\007
 # misc
 alias grep='grep --color=auto'
 alias ..='cd ..'
-alias s='screen -r'
 alias f='fg'
 alias vi='vim'
 alias sort='LC_ALL=C sort'
@@ -36,6 +35,7 @@ alias mp='applauncher.sh mplayer 1 /usr/share/pixmaps/mplayer.png mplayer'
 alias zathura='applauncher.sh zathura 1 /usr/share/pixmaps/zathura.png none'
 alias l='ls -l'
 alias jekyll=/home/juscodit/.gem/ruby/2.0.0/bin/jekyll
+alias v="vim --servername DEV --remote-silent"
 
 # ========================================
 # Comment for the following set-title command:

@@ -38,13 +38,53 @@ fun! CrsCtagsProj()
         \. "xargs -0 ctags --fields=+aS --extra=+q --file-scope=no &"
 endfun
 
+
+
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-"                         set some internal variables
+"                         save sessions
 "-------------------------------------------------------------------------------
 
-let g:html_indent_tags=""
-let mapleader=","
+let g:session_dir = $HOME."/.vim/sessions"
+ 
+" Save sessions whenever vim closes
+autocmd VimLeave * call SaveSession()
+ 
+" Saves the session to session dir. Creates session dir if it doesn't
+" yet exist. Sessions are named after servername paameter
+function! SaveSession()
 
+  " get the server (session) name
+  let s = v:servername
+
+  " create session dir if needed
+  if !isdirectory(g:session_dir)
+    call mkdir(g:session_dir, "p")
+  endif
+
+  " save session using the server name
+  execute "mksession! ".g:session_dir."/".s.".session.vim"
+endfun
+
+" Load session when vim is opened
+autocmd VimEnter * nested call OpenSession()
+
+" Open a saved session if there were no file-names passed as arguments
+" The session opened is based on servername (session name). If there
+" is no session for this server, none will be opened
+function! OpenSession()
+
+  " check if file names were passed as arguments
+  if argc() == 0
+
+    let sn = v:servername
+    let file = g:session_dir."/".sn.".session.vim"
+
+    " if session file exists, load it
+    if filereadable(file)
+      execute "source ".file
+    endif
+  endif
+endfunc
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                              set some autocmds
@@ -60,6 +100,9 @@ au FileType vim setlocal shiftwidth=2 tabstop=2
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                             some basic setting
 "-------------------------------------------------------------------------------
+
+let g:html_indent_tags=""
+let mapleader=","
 
 set nocompatible
 set wildmenu
