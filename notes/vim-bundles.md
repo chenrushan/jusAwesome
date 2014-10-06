@@ -16,3 +16,21 @@
 
     vim-snippets just provides snippets
     ultisnips is the engine
+
+7. [YouCompleteMe](https://github.com/Valloric/YouCompleteMe.git)
+
+    * Clone YouCompleteMe from github
+
+            cd .vim/bundle
+            git submodule add https://github.com/Valloric/YouCompleteMe.git
+            cd YouCompleteMe
+            git submodule update --init --recursive
+
+    * install cmake
+
+    * install YouCompleteMe
+
+            ./install.sh --clang-completer
+
+    Reference: http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
+

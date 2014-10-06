@@ -244,3 +244,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+" Solve the TAB key conflict between ycm and ultisnip
+" Disable YCM's use of TAB key, instead cycle through completion with <C-N> and <C-P> keys.
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
