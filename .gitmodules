@@ -10,3 +10,6 @@
 [submodule "conf/.vim/bundle/ultisnips"]
 	path = conf/.vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
+[submodule "conf/.vim/bundle/vim-airline"]
+	path = conf/.vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
