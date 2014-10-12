@@ -1,6 +1,3 @@
-URxvt.iconFile:             /usr/share/icons/hicolor/scalable/apps/urxvt_icon
-URxvt.foreground:           white
-URxvt.fading:               10
 URxvt.saveLines:            10000
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
@@ -16,6 +13,7 @@ URxvt.perl-ext-common:      selection-to-clipboard
  
 ! enable real transparency
 URxvt.depth:                32
+URxvt*foreground:           White
 !gray theme color
 !URxvt.background:           rgba:2222/2222/2222/eeee
 
@@ -33,13 +31,6 @@ URxvt*italicFont:           xft:Monaco for Powerline:italic:size=10,xft:AR PL UK
 URxvt*boldItalicFont:       xft:Consolas:bold:italic:size=10,xft:AR PL UKai CN:bold:italic:size=11
 URxvt*letterSpace:          -1
 
-! dpi control the size of font
-Xft.dpi:        96
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintfull
- 
 ! URxvt color configuration
 ! black
 *color0:                    #2E3436
