@@ -100,7 +100,10 @@ snippet crdef
 #main method
 #check validity of T
 snippet main
-	def main(args: Array[String]):${1:T} = ${0:}
+	def main(args: Array[String]) = ${0:}
+#toString methd
+snippet toS
+	override def toString() = ${0:}
 ############################
 # basic types(general purpose)
 # you might want to use basic types snippets
@@ -292,6 +295,25 @@ snippet casecl
 ############################
 # testing
 #
+#initialize file
+snippet filew
+	package ${1:pkg}
+	
+	import org.scalatest.{WordSpec, Matchers}
+	
+	class ${2:spec} extends WordSpec with Matchers {
+		"${3:sth}" should {
+			${0}
+		}
+	}
+#a word spec
+snippet wsp
+	"${1:behavior}" in {
+		${0}
+	}
+# should be
+snippet shou
+	${1:A} should be (${2:B})
 #scalatest imports
 snippet scalatest
 	${1:import org.scalatest.Suite}

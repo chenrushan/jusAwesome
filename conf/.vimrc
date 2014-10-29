@@ -48,7 +48,7 @@ endfun
 let g:session_dir = $HOME."/.vim/sessions"
  
 " Save sessions whenever vim closes
-autocmd VimLeave * call SaveSession()
+" autocmd VimLeave * call SaveSession()
  
 " Saves the session to session dir. Creates session dir if it doesn't
 " yet exist. Sessions are named after servername paameter
@@ -67,7 +67,7 @@ function! SaveSession()
 endfun
 
 " Load session when vim is opened
-autocmd VimEnter * nested call OpenSession()
+" autocmd VimEnter * nested call OpenSession()
 
 " Open a saved session if there were no file-names passed as arguments
 " The session opened is based on servername (session name). If there
@@ -105,6 +105,11 @@ au FileType vim setlocal shiftwidth=2 tabstop=2
 let g:html_indent_tags=""
 let mapleader=","
 
+set hidden " allows you to have unwritten changes to a file and open a new file
+set smartcase " ignore case if search pattern is all lowercase
+set history=1000
+set visualbell " don't beep
+set noerrorbells " don't beep
 set nocompatible
 set wildmenu
 set nu
@@ -228,13 +233,14 @@ set undoreload=10000        " number of lines to save for undo
 execute pathogen#infect()
 
 " airline config
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'bubblegum'
 
 " ctrlp config
-let g:ctrlp_map = '<c-i>'
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_map = '<C-o>'
+let g:ctrlp_custom_ignore = '\v\~$|\.(class|o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+nnoremap <C-i> :CtrlPBuffer<cr>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -248,3 +254,4 @@ let g:UltiSnipsEditSplit="vertical"
 " Disable YCM's use of TAB key, instead cycle through completion with <C-N> and <C-P> keys.
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+
