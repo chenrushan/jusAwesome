@@ -299,9 +299,9 @@ snippet casecl
 snippet filew
 	package ${1:pkg}
 	
-	import org.scalatest.{WordSpec, Matchers}
+	import org.scalatest.{WordSpec, Matchers, PrivateMethodTester}
 	
-	class ${2:spec} extends WordSpec with Matchers {
+	class ${2:spec} extends WordSpec with Matchers with PrivateMethodTester {
 		"${3:sth}" should {
 			${0}
 		}
@@ -314,6 +314,12 @@ snippet wsp
 # should be
 snippet shou
 	${1:A} should be (${2:B})
+# private method
+snippet prme
+	val ${1:method} = PrivateMethod[${2:returnType}]('${3:methodName})
+# invode private
+snippet inpr
+	${1:object} invokePrivate ${2:method}()
 #scalatest imports
 snippet scalatest
 	${1:import org.scalatest.Suite}
