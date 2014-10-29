@@ -10,6 +10,8 @@
 
 5. [vim-scala](https://github.com/derekwyatt/vim-scala)
 
+    only work with [FuzzyFinder](https://github.com/vim-scripts/FuzzyFinder) installed, which in turn needs [L9](https://github.com/vim-scripts/L9) to be installed
+
 6. [vim-snippets](https://github.com/honza/vim-snippets)
 
     should use with [ultisnips](https://github.com/SirVer/ultisnips)
