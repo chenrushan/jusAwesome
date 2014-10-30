@@ -233,9 +233,10 @@ set undoreload=10000        " number of lines to save for undo
 execute pathogen#infect()
 
 " airline config
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'bubblegum'
+" good candidates 'laederon', 'lucius', 'understated', 'wombat' 'bubblegum'
+let g:airline_theme = 'lucius'
 
 " ctrlp config
 let g:ctrlp_map = '<C-o>'
