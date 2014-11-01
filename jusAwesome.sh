@@ -283,6 +283,7 @@ function Apps()
         xlockmore # screen locker
         google-chrome # replacement of firefox
         lm_sensors
+        arandr # frontend of xrandr which is for multiple screen display
     )
     InstallPkg apps[@]
 
