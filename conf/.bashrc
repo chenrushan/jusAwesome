@@ -36,6 +36,7 @@ alias zathura='applauncher.sh zathura 1 /usr/share/pixmaps/zathura.png none'
 alias l='ls -l'
 alias jekyll=/home/juscodit/.gem/ruby/2.0.0/bin/jekyll
 alias v="vim --servername DEV --remote-silent"
+alias susp="sudo systemctl suspend"
 
 # ========================================
 # Comment for the following set-title command:
