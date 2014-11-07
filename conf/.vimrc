@@ -240,7 +240,10 @@ let g:airline_theme = 'lucius'
 
 " ctrlp config
 let g:ctrlp_map = '<C-o>'
-let g:ctrlp_custom_ignore = '\v\~$|\.(class|o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_custom_ignore = {
+      \ 'dir': '\.git$\|\.yardoc\|public$|log\|tmp$\|target$\|project$',
+      \ 'file': '\v\~$|\.(class|o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+      \ }
 nnoremap <C-i> :CtrlPBuffer<cr>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
