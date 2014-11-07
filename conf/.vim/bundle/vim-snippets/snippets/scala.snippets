@@ -77,7 +77,7 @@ snippet args
 	${1:args}: ${0:T}*
 #def
 snippet def
-	def ${1:name}(${2:arg}) = ${0:}
+	def ${1:name}(${2:arg}): ${3:return} = ${0:}
 #private def
 snippet prdef
 	private def ${1:name}(${2:arg}) = ${0:}
@@ -100,7 +100,9 @@ snippet crdef
 #main method
 #check validity of T
 snippet main
-	def main(args: Array[String]) = ${0:}
+	def main(args: Array[String]): Unit = {
+		${0:}
+	}
 #toString methd
 snippet toS
 	override def toString(): String = ${0:}
