@@ -37,6 +37,7 @@ alias l='ls -l'
 alias jekyll=/home/juscodit/.gem/ruby/2.0.0/bin/jekyll
 alias v="vim --servername DEV --remote-silent"
 alias susp="sudo systemctl suspend"
+alias jeky="jekyll -w server 2> /dev/null 1>&2 &"
 
 # ========================================
 # Comment for the following set-title command:
