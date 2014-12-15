@@ -97,6 +97,7 @@ au FileType tex,plaintex setlocal tabstop=4
 au FileType python setlocal shiftwidth=2 tabstop=2
 au FileType java setlocal shiftwidth=2 tabstop=2
 au FileType vim setlocal shiftwidth=2 tabstop=2
+au FileType javascript setlocal shiftwidth=2 tabstop=2
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                             some basic setting
@@ -144,6 +145,8 @@ set complete=.,w,b,u
 set backspace=indent,eol,start
 " set a mark on column 80
 set colorcolumn=80
+" 22, 23, 24, 29, 36
+highlight ColorColumn ctermbg=22
 
 " Turn backup off
 set nobackup
@@ -236,7 +239,7 @@ execute pathogen#infect()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " good candidates 'laederon', 'lucius', 'understated', 'wombat' 'bubblegum'
-let g:airline_theme = 'lucius'
+let g:airline_theme = 'bubblegum'
 
 " ctrlp config
 let g:ctrlp_map = '<C-o>'
