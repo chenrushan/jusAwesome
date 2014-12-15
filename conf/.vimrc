@@ -145,8 +145,6 @@ set complete=.,w,b,u
 set backspace=indent,eol,start
 " set a mark on column 80
 set colorcolumn=80
-" 22, 23, 24, 29, 36
-highlight ColorColumn ctermbg=22
 
 " Turn backup off
 set nobackup
@@ -210,7 +208,8 @@ colorscheme molokai
 hi Comment cterm=italic,bold ctermfg=65
 " make vim background transparent
 hi Normal ctermfg=254 ctermbg=none
-hi ColorColumn ctermbg=238
+" 22, 23, 24, 29, 36
+hi ColorColumn ctermbg=22
 
 set concealcursor=inv
 set conceallevel=2
