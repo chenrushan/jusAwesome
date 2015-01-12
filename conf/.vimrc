@@ -236,7 +236,7 @@ execute pathogen#infect()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " good candidates 'laederon', 'lucius', 'understated', 'wombat' 'bubblegum'
-let g:airline_theme = 'lucius'
+let g:airline_theme = 'bubblegum'
 
 " ctrlp config
 let g:ctrlp_map = '<C-o>'
