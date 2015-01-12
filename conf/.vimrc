@@ -97,6 +97,7 @@ au FileType tex,plaintex setlocal tabstop=4
 au FileType python setlocal shiftwidth=2 tabstop=2
 au FileType java setlocal shiftwidth=2 tabstop=2
 au FileType vim setlocal shiftwidth=2 tabstop=2
+au FileType javascript setlocal shiftwidth=2 tabstop=2
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                             some basic setting
@@ -207,7 +208,8 @@ colorscheme molokai
 hi Comment cterm=italic,bold ctermfg=65
 " make vim background transparent
 hi Normal ctermfg=254 ctermbg=none
-hi ColorColumn ctermbg=238
+" 22, 23, 24, 29, 36
+hi ColorColumn ctermbg=22
 
 set concealcursor=inv
 set conceallevel=2
