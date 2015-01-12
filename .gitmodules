@@ -22,3 +22,6 @@
 [submodule "conf/.vim/bundle/FuzzyFinder"]
 	path = conf/.vim/bundle/FuzzyFinder
 	url = https://github.com/vim-scripts/FuzzyFinder
+[submodule "conf/.vim/bundle/tmuxline.vim"]
+	path = conf/.vim/bundle/tmuxline.vim
+	url = https://github.com/edkolev/tmuxline.vim
