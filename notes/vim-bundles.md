@@ -43,3 +43,6 @@
 
     Reference: [alexeyshmalko.com](http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/)
 
+8. [tmuxline](https://github.com/edkolev/tmuxline.vim)
+
+    Configure tmux status line from vim, and make tmux share the same theme as vim
