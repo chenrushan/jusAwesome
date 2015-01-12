@@ -261,3 +261,6 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
+" so that starting vim doesn't overwrite tmux theme
+let g:airline#extensions#tmuxline#enabled = 0
+
