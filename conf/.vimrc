@@ -211,18 +211,6 @@ hi Normal ctermfg=254 ctermbg=none
 " 22, 23, 24, 29, 36
 hi ColorColumn ctermbg=22
 
-set concealcursor=inv
-set conceallevel=2
-let g:clang_auto_select=1
-let g:clang_complete_auto=1
-let g:clang_complete_copen=1
-let g:clang_complete_hl_errors=1
-let g:clang_snippets=1
-let g:clang_periodic_quickfix=0
-let g:clang_complete_copen=1
-let g:clang_snippets_engine='clang_complete'
-set completeopt=menu,longest
-
 " set rtp+=/usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
 
 " enable persistent undo (work for vim >= 7.3)
@@ -241,12 +229,12 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'bubblegum'
 
 " ctrlp config
-let g:ctrlp_map = '<C-o>'
+let g:ctrlp_map = '<C-i>'
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\.git$\|\.yardoc\|public$|log\|tmp$\|target$\|project$',
       \ 'file': '\v\~$|\.(class|o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
       \ }
-nnoremap <C-i> :CtrlPBuffer<cr>
+" nnoremap <C-i> :CtrlPBuffer<cr>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -260,6 +248,14 @@ let g:UltiSnipsEditSplit="vertical"
 " Disable YCM's use of TAB key, instead cycle through completion with <C-N> and <C-P> keys.
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_complete_in_comments=1
+let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_add_preview_to_completeopt=1
+let g:ycm_autoclose_preview_window_after_insertion=1
+nnoremap <leader>d :YcmCompleter GoTo<CR>
+set previewheight=1
+set splitbelow
 
 " so that starting vim doesn't overwrite tmux theme
 let g:airline#extensions#tmuxline#enabled = 0
