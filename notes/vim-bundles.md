@@ -39,6 +39,15 @@
             make ycm_support_libs
             rm -r ycm_build
 
+    * Install YCM with clang-completer
+
+        before running the following commands, install `libclang` on your system
+        
+            cd ~/.vim/bundle/YouCompleteMe/
+            ./install.sh --clang-completer --system-libclang
+
+        after that, add `.ycm_extra_conf.py`
+        
     If you want to enable clang-completer support, see [YouCompleteMe github](https://github.com/Valloric/YouCompleteMe)
 
     Reference: [alexeyshmalko.com](http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/)
