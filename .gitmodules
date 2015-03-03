@@ -25,3 +25,9 @@
 [submodule "conf/.vim/bundle/tmuxline.vim"]
 	path = conf/.vim/bundle/tmuxline.vim
 	url = https://github.com/edkolev/tmuxline.vim
+[submodule "conf/.vim/bundle/vim-lua-ftplugin"]
+	path = conf/.vim/bundle/vim-lua-ftplugin
+	url = https://github.com/xolox/vim-lua-ftplugin.git
+[submodule "conf/.vim/bundle/vim-misc"]
+	path = conf/.vim/bundle/vim-misc
+	url = https://github.com/xolox/vim-misc.git
