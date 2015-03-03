@@ -96,8 +96,10 @@ au FileType tex,plaintex setlocal shiftwidth=4
 au FileType tex,plaintex setlocal tabstop=4
 au FileType python setlocal shiftwidth=2 tabstop=2
 au FileType java setlocal shiftwidth=2 tabstop=2
+au FileType lua setlocal shiftwidth=3 tabstop=3
 au FileType vim setlocal shiftwidth=2 tabstop=2
 au FileType javascript setlocal shiftwidth=2 tabstop=2
+au BufNewFile,BufRead *.md setlocal syntax=markdown
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                             some basic setting
