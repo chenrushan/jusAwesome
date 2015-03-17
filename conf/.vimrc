@@ -102,6 +102,23 @@ au FileType javascript setlocal shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.md setlocal filetype=markdown
 au vimenter * NERDTree
 
+" {{{
+" the following script allows NERDTree to highlight current open file
+"
+" returns true iff is NERDTree open/active
+function! rc:isNTOpen()        
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+" calls NERDTreeFind iff NERDTree is active, current window contains a modifiable file, and we're not in vimdiff
+function! rc:syncTree()
+  if &modifiable && rc:isNTOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+au BufEnter * call rc:syncTree()
+" }}}
+
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                             some basic setting
 "-------------------------------------------------------------------------------
@@ -179,7 +196,7 @@ nnoremap <C-p> :bprev<cr>
 nnoremap <C-n> :bnext<cr>
 nnoremap t :e 
 nnoremap <C-L> :nohl<cr><C-L>
-nnoremap <C-k> :bd<cr>
+nnoremap <C-k> :bp<cr>:bd #<cr>
 nnoremap <leader>v :vsp<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :qa<cr>
@@ -265,3 +282,4 @@ set splitbelow
 let g:airline#extensions#tmuxline#enabled = 0
 
 let g:NERDTreeWinSize = 25
+
