@@ -99,7 +99,8 @@ au FileType java setlocal shiftwidth=2 tabstop=2
 au FileType lua setlocal shiftwidth=3 tabstop=3
 au FileType vim setlocal shiftwidth=2 tabstop=2
 au FileType javascript setlocal shiftwidth=2 tabstop=2
-au BufNewFile,BufRead *.md setlocal syntax=markdown
+au BufNewFile,BufRead *.md setlocal filetype=markdown
+au vimenter * NERDTree
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                             some basic setting
@@ -191,6 +192,7 @@ nnoremap <leader>ac I/* <esc>A */<esc>
 nnoremap <leader>t :sil !find -maxdepth 1 -name '*.[ch]' -print0 -o
          \ -name '*.cpp' -print0 \| xargs -0 ctags --fields=+aS --extra=+q &<cr>
 nnoremap <leader>T :call CrsCtagsProj()<cr>
+nnoremap <leader>r :NERDTreeFind<cr><C-w>l
 
 " this map causes the visual selected text yanked by pressing
 " 'Y' to be sent to the PRIMARY selection, so that you can paste
@@ -262,3 +264,4 @@ set splitbelow
 " so that starting vim doesn't overwrite tmux theme
 let g:airline#extensions#tmuxline#enabled = 0
 
+let g:NERDTreeWinSize = 25
