@@ -34,10 +34,11 @@ alias ls='ls --color=auto'
 alias mp='applauncher.sh mplayer 1 /usr/share/pixmaps/mplayer.png mplayer'
 alias zathura='applauncher.sh zathura 1 /usr/share/pixmaps/zathura.png none'
 alias l='ls -l'
-alias jekyll=/home/juscodit/.gem/ruby/2.0.0/bin/jekyll
+alias jekyll=/home/juscodit/.gem/ruby/2.2.0/bin/jekyll
 alias v="vim --servername DEV --remote-silent"
 alias susp="sudo systemctl suspend"
-alias jeky="jekyll -w server 2> /dev/null 1>&2 &"
+alias jeky="jekyll server -w 2> /dev/null 1>&2 &"
+alias guard="/home/juscodit/.gem/ruby/2.2.0/bin/guard"
 
 # ========================================
 # Comment for the following set-title command:
@@ -98,10 +99,10 @@ bind -m vi-insert "\C-u":unix-line-discard
 bind -m vi-insert "\C-k":kill-line
 bind -m vi-insert "\C-t":menu-complete
 
-# \e[xx;xx] is the color code
+# \[\e[xx;xx\] is the color code
 # note that a newline before promot is important especially when you
 # stare at terminal for a long time
-export PS1="\n\[\e[30;1m\][\[\e[37;1m\]\u\[\e[30;1m\]]-[\[\e[37;1m\]jobs:\j\[\e[30;1m\]]-[\[\e[37;1m\]\w\[\e[30;1m\]]\n[\[\[\e[37;1m\]! \!\[\e[30;1m\]]-> \[\e[0m\]"
+export PS1="\n\[\e[42;1m\]\[\e[30;1m\][\u]-[jobs:\j]-[\w]->\[\e[0m\] "
 
 HISTCONTROL=ignoreboth
 
@@ -115,7 +116,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 set show-all-if-ambiguous on
 
-. /usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/bash/powerline.sh
+# . /usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/bash/powerline.sh
 
 # RunTmux tries to attach to existing deattached tmux session or start a new session
 function RunTmux()

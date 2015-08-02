@@ -100,7 +100,7 @@ au FileType lua setlocal shiftwidth=3 tabstop=3
 au FileType vim setlocal shiftwidth=2 tabstop=2
 au FileType javascript setlocal shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.md setlocal filetype=markdown
-au vimenter * NERDTree
+" au vimenter * NERDTree
 
 " {{{
 " the following script allows NERDTree to highlight current open file
@@ -116,7 +116,7 @@ function! rc:syncTree()
     wincmd p
   endif
 endfunction
-au BufEnter * call rc:syncTree()
+" au BufEnter * call rc:syncTree()
 " }}}
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
