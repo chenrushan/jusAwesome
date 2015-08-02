@@ -137,6 +137,7 @@ alias t=RunTmux
 # for __git_ps1 to work
 source ${HOME}/.git-prompt.sh
 
+# copy from http://www.ugolnik.info/?p=1526
 function promptCommand()
 {
     # set an error string for the prompt, if applicable
@@ -157,6 +158,10 @@ function promptCommand()
     local BRANCH=""
     if [ "\$(type -t __git_ps1)" ]; then
         BRANCH="\$(__git_ps1 '[ %s ] ')"
+    fi
+
+    if [ -d ".svn" ]; then
+        BRANCH="[ "`svn info | awk '/Last\ Changed\ Rev/ {print $4}'`" ]"
     fi
  
     local LOAD=`cut -d' ' -f1 /proc/loadavg`
