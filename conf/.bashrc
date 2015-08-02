@@ -102,7 +102,8 @@ bind -m vi-insert "\C-t":menu-complete
 # \[\e[xx;xx\] is the color code
 # note that a newline before promot is important especially when you
 # stare at terminal for a long time
-export PS1="\n\[\e[42;1m\]\[\e[30;1m\][\u]-[jobs:\j]-[\w]->\[\e[0m\] "
+# export PS1="\n\[\e[35;1m\]\[\e[30;1m\][\u]-[jobs:\j]-[\w]->\[\e[0m\] "
+# export PS1="\[\033[m\]|\[\033[1;35m\]\t\[\033[m\]|\[\e[1m\]\u\[\e[1;36m\]\[\033[m\]@\[\e[1;36m\]\h\[\033[m\]:\[\e[0m\]\[\e[1;32m\][\W]> \[\e[0m\]"
 
 HISTCONTROL=ignoreboth
 
@@ -132,4 +133,79 @@ function RunTmux()
 }
 
 alias t=RunTmux
+
+# for __git_ps1 to work
+source ${HOME}/.git-prompt.sh
+
+function promptCommand()
+{
+    # set an error string for the prompt, if applicable
+    if [ $? -eq 0 ]; then
+        ERRPROMPT=" "
+    else
+        ERRPROMPT=" ($?) "
+    fi
+
+    # get number of jobs
+    if [ "`jobs`" != "" ]; then
+        NJOBS=' (\j)'
+    else
+        NJOBS=""
+    fi
+ 
+    # if we're in a Git repo, show current branch
+    local BRANCH=""
+    if [ "\$(type -t __git_ps1)" ]; then
+        BRANCH="\$(__git_ps1 '[ %s ] ')"
+    fi
+ 
+    local LOAD=`cut -d' ' -f1 /proc/loadavg`
+    local CURENT_PATH=`echo ${PWD/#$HOME/\~}`
+
+    # trim long path
+    if [ ${#CURENT_PATH} -gt "35" ]; then
+        let CUT=${#CURENT_PATH}-35
+        CURENT_PATH="...$(echo -n $PWD | sed -e "s/\(^.\{$CUT\}\)\(.*\)/\2/")"
+    fi
+ 
+    local TITLEBAR="\[\e]2;${CURENT_PATH}\a"
+ 
+    local GREEN="\[\033[0;32m\]"
+    local CYAN="\[\033[0;36m\]"
+    local BCYAN="\[\033[1;36m\]"
+    local BLUE="\[\033[0;34m\]"
+    local GRAY="\[\033[0;37m\]"
+    local DKGRAY="\[\033[1;30m\]"
+    local WHITE="\[\033[1;37m\]"
+    local RED="\[\033[0;31m\]"
+    # return color to Terminal setting for text color
+    local DEFAULT="\[\033[0;39m\]"
+ 
+    PROMPT="[ ${USER}@${HOSTNAME} ]${NJOBS}$ERRPROMPT[ ${CURENT_PATH} ]"
+ 
+    # different prompt and color for root
+    local PR="$ "
+    local USERNAME_COLORED="${BCYAN}${USER}${GREEN}@${BCYAN}${HOSTNAME}"
+    if [ "$UID" = "0" ]; then
+        PR="# "
+        USERNAME_COLORED="${RED}${USER}${GREEN}@${RED}${HOSTNAME}"
+    fi
+ 
+    # use only ASCII symbols in linux console
+    local DASH="\e(0q\e(B"
+    local TC="\]\e(0l\e(B\]"
+    local BC="\[\e(0\]m\[\e(B\]"
+ 
+    local SEPARATOR=""
+    let FILLS=${COLUMNS}-${#PROMPT}-8
+    for (( i=0; i<$FILLS; i++ )) do
+        SEPARATOR=$SEPARATOR$DASH
+    done
+
+    local TOP_LINE="${GRAY}${TC}${CYAN}[ ${USERNAME_COLORED} ${CYAN}]${GREEN}${NJOBS}${RED}$ERRPROMPT${CYAN}[ ${GRAY}${CURENT_PATH}${CYAN} ] ${GRAY}${SEPARATOR}"
+    local BOTTOM_LINE="${GRAY}${BC}${BRANCH}${GREEN}${PR}${DEFAULT}"
+    export PS1="${TITLEBAR}\n${TOP_LINE}\n${BOTTOM_LINE}"
+}
+
+PROMPT_COMMAND=promptCommand
 
