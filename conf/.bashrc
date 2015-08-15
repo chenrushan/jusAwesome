@@ -39,6 +39,7 @@ alias v="vim --servername DEV --remote-silent"
 alias susp="sudo systemctl suspend"
 alias jeky="jekyll server -w 2> /dev/null 1>&2 &"
 alias guard="/home/juscodit/.gem/ruby/2.2.0/bin/guard"
+alias gentags="find -name '*.[hc]' -print0 -o -name '*.cpp' -print0 | xargs -0 ctags --fields=+aS --extra=+q --file-scope=no"
 
 # ========================================
 # Comment for the following set-title command:
@@ -213,4 +214,15 @@ function promptCommand()
 }
 
 PROMPT_COMMAND=promptCommand
+
+# ------------------------------
+# preserve bash history in multiple bash shells (like using tmux)
+# ------------------------------
+
+# avoid duplicates..
+export HISTCONTROL=ignoredups:erasedups
+# append history entries..
+shopt -s histappend
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
