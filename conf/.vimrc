@@ -156,10 +156,13 @@ set laststatus=2
 " file, set autochdir help you avoid changing current working directory
 " manually every time you switch buffer
 set autochdir
-" the final '/' will cause vim to search tags file up to root directory
-" until a tags file is found
-set tags=./tags,../tags,tags
-set tags+=~/.vim/tags/ctags
+
+" from (http://vim.wikia.com/wiki/Single_tags_file_for_a_source_tree)
+" The last semicolon is the key here. When Vim tries to locate the 'tags'
+" file, it first looks at the current directory, then the parent directory,
+" then the parent of the parent, and so on. (should work with 'set autochdir')
+set tags=tags;
+
 set completeopt=menuone,menu,longest
 set complete=.,w,b,u
 set backspace=indent,eol,start
