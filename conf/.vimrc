@@ -92,8 +92,7 @@ endfunc
 "-------------------------------------------------------------------------------
 
 au FileType c,cpp,java setlocal cindent
-au FileType tex,plaintex setlocal shiftwidth=4
-au FileType tex,plaintex setlocal tabstop=4
+au FileType tex,plaintex setlocal shiftwidth=2 tabstop=2
 au FileType python setlocal shiftwidth=2 tabstop=2
 au FileType java setlocal shiftwidth=2 tabstop=2
 au FileType lua setlocal shiftwidth=3 tabstop=3
