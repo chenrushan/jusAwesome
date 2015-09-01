@@ -41,6 +41,18 @@ alias jeky="jekyll server -w 2> /dev/null 1>&2 &"
 alias guard="/home/juscodit/.gem/ruby/2.2.0/bin/guard"
 alias gentags="find -name '*.[hc]' -print0 -o -name '*.cpp' -print0 | xargs -0 ctags --fields=+aS --extra=+q --file-scope=no"
 
+function inkscape_svg_to_pdf_tex()
+{
+    if [ ! -f $1 ]; then
+        echo "$1 not exists"
+        return
+    fi
+    filename="${1%.*}"
+    echo "$1 ==> ${filename}.pdf ..."
+    inkscape -D -z --file $1 --export-pdf ${filename}.pdf --export-latex
+}
+alias svg2pdftex=inkscape_svg_to_pdf_tex
+
 # ========================================
 # Comment for the following set-title command:
 #
