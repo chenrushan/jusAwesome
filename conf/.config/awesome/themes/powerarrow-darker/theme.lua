@@ -15,25 +15,31 @@ theme.font                          = "Monaco 8"
 theme.fg_normal                     = "#DDDDFF"
 theme.fg_focus                      = "#F0DFAF"
 theme.fg_urgent                     = "#CC9393"
-theme.bg_normal                     = "#224433"
 theme.bg_focus                      = "#313131"
 theme.bg_urgent                     = "#1A1A1A"
-theme.border_width                  = "0"
+theme.border_width                  = "7"
+theme.border_marked                 = "#CC9393"
+theme.titlebar_bg_focus             = "#FFFFFF"
+theme.titlebar_bg_normal            = "#FFFFFF"
 
 -- 'green theme'
 theme.border_normal                 = "#3F5F3F"
 theme.border_focus                  = "#7FaF7F"
-
--- 'gray/black theme'
---theme.border_normal                 = "#3F3F3F"
---theme.border_focus                  = "#7F7F7F"
-theme.border_marked                 = "#CC9393"
-theme.titlebar_bg_focus             = "#FFFFFF"
-theme.titlebar_bg_normal            = "#FFFFFF"
+theme.bg_normal                     = "#224433"
 theme.taglist_fg_focus              = "#D8D782"
 theme.taglist_bg_focus              = "#224433"
 theme.tasklist_bg_focus             = "#224433"
 theme.tasklist_fg_focus             = "#D8D782"
+
+-- 'black theme'
+-- theme.border_normal                 = "#3F3F3F"
+-- theme.border_focus                  = "#7F7F7F"
+-- theme.bg_normal                     = "#111111"
+-- theme.taglist_fg_focus              = "#D8D782"
+-- theme.taglist_bg_focus              = "#111111"
+-- theme.tasklist_bg_focus             = "#111111"
+-- theme.tasklist_fg_focus             = "#D8D782"
+
 theme.textbox_widget_margin_top     = 1
 theme.notify_fg                     = theme.fg_normal
 theme.notify_bg                     = theme.bg_normal

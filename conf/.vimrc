@@ -233,7 +233,7 @@ hi Comment cterm=italic,bold ctermfg=65
 hi Normal ctermfg=254 ctermbg=none
 " 22, 23, 24, 29, 36
 " 22 good for green scheme
-hi ColorColumn ctermbg=23
+hi ColorColumn ctermbg=22
 
 " set rtp+=/usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
 
@@ -252,7 +252,7 @@ let g:airline_powerline_fonts = 1
 " good candidates 'laederon', 'lucius', 'understated', 'wombat' 'bubblegum'
 " 'bubblegum' is good for green scheme
 " 'lucius' is good for black scheme
-let g:airline_theme = 'lucius'
+let g:airline_theme = 'bubblegum'
 
 " ctrlp config
 let g:ctrlp_map = '<C-i>'
