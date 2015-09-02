@@ -1,3 +1,4 @@
 *.swp
 conf/.vim/undo/**
 conf/.vim/sessions/**
+.ycm_extra_conf.pyc
