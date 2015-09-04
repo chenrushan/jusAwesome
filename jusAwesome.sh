@@ -283,6 +283,8 @@ function Apps()
         xlockmore # screen locker
         lm_sensors
         arandr # frontend of xrandr which is for multiple screen display
+        evince # pdf reader
+        cmake
     )
     InstallPkg apps[@]
 
@@ -357,9 +359,7 @@ function TODO()
     Log "=================================================="
     Log "TODO:"
     Log "[*] Change gtk them with lxappearance"
-    Log "[*] run scim-setup"
     Log "[*] run sensors-detect"
-    Log "[*] set diff-cmd = $HOME/.subversion/vimdiff.sh in conf/.subversion/config"
     Log "[*] change the wireless interface in .conkyrc"
     Log "[*] change your qt app appearance with qtconfig-qt4, it has option to"
     Log "    utilize the GTK theme"
@@ -388,11 +388,7 @@ function TODO()
     Log "    hyperthreading enabled which means you'll have multiple virtual"
     Log "    processor in each pysical core, and you should modify .conkyrc"
     Log "    accordingly to display the right cpu usage."
-    Log "[*] Change Chinese font of firefox to kai"
-    Log "[*] Mac screen may be too bright to stare for a long time, change Normal"
-    Log "    color of $HOME/.vim/colors/256-jungle.vim from 256 to 254 "
-    Log "[*] old conf files are saved to $oldConfDir"
-    Log "[*] Install xsunpinyin from google code"
+    Log "[*] run tic for terminfo"
     Log "=================================================="
 }
 

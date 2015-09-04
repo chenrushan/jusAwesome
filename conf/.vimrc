@@ -105,16 +105,16 @@ au BufNewFile,BufRead *.md setlocal filetype=markdown
 " the following script allows NERDTree to highlight current open file
 "
 " returns true iff is NERDTree open/active
-function! rc:isNTOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-" calls NERDTreeFind iff NERDTree is active, current window contains a modifiable file, and we're not in vimdiff
-function! rc:syncTree()
-  if &modifiable && rc:isNTOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
+" function! rc:isNTOpen()        
+"   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+" endfunction
+" " calls NERDTreeFind iff NERDTree is active, current window contains a modifiable file, and we're not in vimdiff
+" function! rc:syncTree()
+"   if &modifiable && rc:isNTOpen() && strlen(expand('%')) > 0 && !&diff
+"     NERDTreeFind
+"     wincmd p
+"   endif
+" endfunction
 " au BufEnter * call rc:syncTree()
 " }}}
 
