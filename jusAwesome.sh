@@ -285,6 +285,9 @@ function Apps()
         arandr # frontend of xrandr which is for multiple screen display
         evince # pdf reader
         cmake
+        fcitx # input method
+        fcitx-googlepinyin
+        fcitx-libpinyin
     )
     InstallPkg apps[@]
 

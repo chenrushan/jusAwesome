@@ -5,11 +5,12 @@ compton -b &
 # feh --bg-scale /home/juscodit/.wallpaper.jpg
 
 # export the following variables so that applications can work with xsunpinyin
-export XMODIFIERS="@im=xsunpinyin"
+export XMODIFIERS="@im=fcitx"
 export GTK_IM_MODULE="xim"
 export QT_IM_MODULE="xim"
 
-xsunpinyin -d &
+# xsunpinyin -d &
+fcitx &
 
 # dropboxd &
 
