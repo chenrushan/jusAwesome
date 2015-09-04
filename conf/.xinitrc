@@ -11,7 +11,7 @@ export QT_IM_MODULE="xim"
 
 xsunpinyin -d &
 
-dropboxd &
+# dropboxd &
 
 # =================================================================
 # I encountered a strange problem before I set LANG as UTF8 here.
