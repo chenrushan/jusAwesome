@@ -194,10 +194,10 @@ function Yaourt()
     InstallPkg pkgs[@]
 
     # dependency package
-    pkg='https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz'
+    pkg='https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz'
     InstallPkgAUR $pkg
 
-    pkg='https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz'
+    pkg='https://aur.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz'
     InstallPkgAUR $pkg
 }
 
@@ -215,7 +215,7 @@ function Fonts()
     InstallPkg fonts[@]
 
     fonts=(
-        ttf-monaco # favorite terminal font
+        monaco-linux-font
         ttf-ms-fonts # to solve firefox font rendering problem on certain pages like Google
         ttf-vista-fonts # including consolas
     )
@@ -273,7 +273,7 @@ function Apps()
         pidgin # for google talk
         imagemagick # contain "import" command which is used to take screenshot
         gphoto2 # to copy image from iphone
-        icedtea-web-java7 # java support for web browser
+        icedtea-web # java support for web browser
         gdb # debugger
         valgrind # debugger
         clang # for auto-complete
@@ -281,20 +281,20 @@ function Apps()
         mpd # music player daemon
         mpc # music player client
         xlockmore # screen locker
-        google-chrome # replacement of firefox
         lm_sensors
         arandr # frontend of xrandr which is for multiple screen display
     )
     InstallPkg apps[@]
 
     aur_apps=(
-        xseticon # xseticon enables you to set icon for an app at runtime
+        # xseticon # xseticon enables you to set icon for an app at runtime
         equalx # to write equation
-        dropbox-experimental # file sharing service
-        kompozer # Kompozer is for WYSIWYG html editing
+        # dropbox-experimental # file sharing service
+        # kompozer # Kompozer is for WYSIWYG html editing
         grabc # command line tool to get pixel color on screen
-        vim-clang-complete # for auto-complete
+        vim-clang-complete-git # for auto-complete
         zukitwo-themes # many gtk2 and gtk3 themes
+        google-chrome # replacement of firefox
     )
     
     InstallPkgAUR_Yaourt aur_apps[@]
@@ -302,10 +302,10 @@ function Apps()
     Log "=================================================="
     Log "Link /usr/bin/python to /usr/bin/python3"
     Log "=================================================="
-    sudo ln -s /usr/bin/python3 /usr/bin/python
-    if [[ $? -ne 0 ]]; then
-        ExitFail "[ERROR]: fail to link /usr/bin/python"
-    fi
+    # sudo ln -s /usr/bin/python3 /usr/bin/python
+    # if [[ $? -ne 0 ]]; then
+    #     ExitFail "[ERROR]: fail to link /usr/bin/python"
+    # fi
 }
 
 function Goagent()
@@ -338,9 +338,18 @@ function Goagent()
     fi
 }
 
-function CopyConf()
+function LinkConf()
 {
-    cp -r $appPath/conf/.* $HOME
+    rm /home/juscodit/.bashrc
+    ln -s /home/juscodit/jusAwesome/conf/.Xdefaults /home/juscodit/.Xdefaults
+    ln -s /home/juscodit/jusAwesome/conf/.bashrc /home/juscodit/.bashrc
+    ln -s /home/juscodit/jusAwesome/conf/.vim/ /home/juscodit/.vim
+    ln -s /home/juscodit/jusAwesome/conf/.vimrc /home/juscodit/.vimrc
+    ln -s /home/juscodit/jusAwesome/conf/.terminfo/ /home/juscodit/.terminfo/
+    ln -s /home/juscodit/jusAwesome/conf/.compton.conf /home/juscodit/.compton.conf
+    ln -s /home/juscodit/jusAwesome/conf/.config/awesome/ /home/juscodit/.config/awesome/
+    ln -s /home/juscodit/jusAwesome/conf/.fonts/ /home/juscodit/.fonts/
+    ln -s /home/juscodit/jusAwesome/conf/.tmux.conf /home/juscodit/.tmux.conf
 }
 
 function TODO()
@@ -399,7 +408,7 @@ function CreateOpenboxEnv()
     Fonts
     NetworkManager
     Apps
-    CopyConf
+    LinkConf
 
     TODO
 }
