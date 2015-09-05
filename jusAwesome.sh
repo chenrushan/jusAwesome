@@ -288,6 +288,7 @@ function Apps()
         fcitx # input method
         fcitx-googlepinyin
         fcitx-libpinyin
+        unzip
     )
     InstallPkg apps[@]
 
