@@ -17,7 +17,7 @@ theme.fg_focus                      = "#F0DFAF"
 theme.fg_urgent                     = "#CC9393"
 theme.bg_focus                      = "#313131"
 theme.bg_urgent                     = "#1A1A1A"
-theme.border_width                  = "7"
+theme.border_width                  = "1"
 theme.border_marked                 = "#CC9393"
 theme.titlebar_bg_focus             = "#FFFFFF"
 theme.titlebar_bg_normal            = "#FFFFFF"
@@ -49,7 +49,7 @@ theme.awful_widget_margin_top       = 2
 theme.mouse_finder_color            = "#CC9393"
 theme.menu_height                   = "16"
 theme.menu_width                    = "140"
-theme.useless_gap_width             = 15
+theme.useless_gap_width             = 12
 
 theme.menu_submenu_icon             = themes_dir .. "/icons/submenu.png"
 theme.taglist_squares_sel           = themes_dir .. "/icons/square_sel.png"
