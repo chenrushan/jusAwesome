@@ -181,8 +181,8 @@ function promptCommand()
     local CURENT_PATH=`echo ${PWD/#$HOME/\~}`
 
     # trim long path
-    if [ ${#CURENT_PATH} -gt "35" ]; then
-        let CUT=${#CURENT_PATH}-35
+    if [ ${#CURENT_PATH} -gt "25" ]; then
+        let CUT=${#CURENT_PATH}-25
         CURENT_PATH="...$(echo -n $PWD | sed -e "s/\(^.\{$CUT\}\)\(.*\)/\2/")"
     fi
  
