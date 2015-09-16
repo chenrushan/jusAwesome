@@ -78,5 +78,12 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 nm-applet &
 
+# add crontab to change wallpaper constantly
+# crontab -l | grep -q feh && existed=true || existed=false
+# if [[ "$existed" = true ]]; then
+#     (crontab -l 2>/dev/null; \
+#      echo 'DISPLAY=:0.0 feh --bg-scale "$(find ~/jusAwesome/wallpapers/ | shuf -n1)') | crontab -
+# fi
+
 exec awesome
 
