@@ -165,8 +165,8 @@ snippet ni \noindent
 #References
 snippet itd description \item
 	\item[${1:description}] ${0:item}
-snippet figure reference to a figure
-	${1:Figure}~\ref{${2:fig:}}
+snippet fig reference to a figure
+	${1:fig}~\ref{${2:fig:}}
 snippet table reference to a table
 	${1:Table}~\ref{${2:tab:}}
 snippet listing reference to a listing
@@ -214,7 +214,7 @@ snippet tt typewriter (monospace) text
 #misc
 snippet ft \footnote
 	\footnote{${0:text}}
-snippet fig figure environment (includegraphics)
+snippet figure figure environment (includegraphics)
 	\begin{figure}
 	\begin{center}
 		\includegraphics[scale=${1}]{Figures/${2}}
@@ -289,3 +289,5 @@ snippet urlc
 	\url{`@+`} ${0}
 snippet hrefc
 	\href{`@+`}{${1}} ${0}
+snippet vb
+	\verb|${0}|
