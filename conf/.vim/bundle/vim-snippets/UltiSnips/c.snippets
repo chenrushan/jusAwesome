@@ -132,6 +132,7 @@ snippet st "struct"
 struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
 	${0:/* data */}
 };
+
 endsnippet
 
 snippet fun "function" b
@@ -146,4 +147,7 @@ snippet fund "function declaration" b
 ${1:void} ${2:function_name}(${3});
 endsnippet
 
+snippet	nl "var == NULL" w
+${1:var} == NULL
+endsnippet
 # vim:ft=snippets:
