@@ -188,7 +188,6 @@ inoremap " ""<left>
 inoremap [ []<left>
 inoremap ( ()<left>
 inoremap { {}<left>
-inoremap <C-j> /*  */<left><left><left>
 imap <C-l> <esc><C-l>zza
 inoremap <C-e> <end>
 inoremap <C-b> <left>
