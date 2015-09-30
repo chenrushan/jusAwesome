@@ -30,6 +30,7 @@ flags = [
     '-isystem', '/System/Library/Frameworks/Python.framework/Headers',
     '-isystem', '/usr/local/include',
     '-isystem', '/usr/include/',
+    '-isystem', '/usr/include/python2.7/',
     '-isystem', '/usr/local/include/eigen3',
     '-isystem', '/usr/include/raptor2',
     '-isystem', '/usr/lib/glib-2.0/include',
