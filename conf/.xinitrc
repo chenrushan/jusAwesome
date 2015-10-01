@@ -86,5 +86,8 @@ nm-applet &
 #      echo 'DISPLAY=:0.0 feh --bg-scale "$(find ~/jusAwesome/wallpapers/ | shuf -n1)') | crontab -
 # fi
 
+# modify time
+sudo ntpd -qg &
+
 exec awesome
 
