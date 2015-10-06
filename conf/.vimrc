@@ -190,7 +190,7 @@ inoremap ( ()<left>
 inoremap { {}<left>
 imap <C-l> <esc><C-l>zza
 inoremap <C-e> <end>
-inoremap <C-b> <left>
+" inoremap <C-b> <left>
 inoremap <C-f> <right>
 
 nnoremap <C-p> :bprev<cr>
