@@ -33,8 +33,7 @@ endsnippet
 
 snippet readfile "read file (readF)"
 std::vector<char> v;
-if (FILE *fp = fopen(${1:"filename"}, "r"))
-{
+if (FILE *fp = fopen(${1:"filename"}, "r")) {
 	char buf[1024];
 	while(size_t len = fread(buf, 1, sizeof(buf), fp))
 		v.insert(v.end(), buf, buf + len);
@@ -54,4 +53,21 @@ snippet tp "template <typename ..> (template)"
 template <typename ${1:_InputIter}>
 endsnippet
 
+snippet	nl "var == NULL" w
+${1:var} == NULL
+endsnippet
+
+snippet / "comment"
+/* ${VISUAL}${1} */${0}
+endsnippet
+
+snippet sz "sizeof(var)" w
+sizeof(${VISUAL}${1})${0}
+endsnippet
+
+snippet iff "if .. (if)"
+if (${VISUAL}) {
+	${0}
+}
+endsnippet
 # vim:ft=snippets:
