@@ -190,7 +190,7 @@ inoremap ( ()<left>
 inoremap { {}<left>
 imap <C-l> <esc><C-l>zza
 inoremap <C-e> <end>
-" inoremap <C-b> <left>
+inoremap <C-b> <left>
 inoremap <C-f> <right>
 
 nnoremap <C-p> :bprev<cr>
@@ -264,7 +264,7 @@ let g:ctrlp_custom_ignore = {
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-d>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
