@@ -83,7 +83,7 @@ typedef ${1:int} ${2:MyCustomType};
 endsnippet
 
 snippet wh "while loop"
-while(${1:/* condition */}) {
+while (${1:/* condition */}) {
 	${VISUAL}${0}
 }
 endsnippet
@@ -91,7 +91,7 @@ endsnippet
 snippet do "do...while loop (do)"
 do {
 	${VISUAL}${0}
-} while(${1:/* condition */});
+} while (${1:/* condition */});
 endsnippet
 
 snippet fprintf "fprintf ..."
@@ -151,11 +151,17 @@ snippet	nl "var == NULL" w
 ${1:var} == NULL
 endsnippet
 
-snippet	/ "comment"
+snippet / "comment"
 /* ${VISUAL}${1} */${0}
 endsnippet
 
-snippet	si "sizeof(var)" w
-sizeof(${1:var})${0}
+snippet sz "sizeof(var)" w
+sizeof(${VISUAL}${1})${0}
+endsnippet
+
+snippet iff "if .. (if)"
+if (${VISUAL}) {
+	${0}
+}
 endsnippet
 # vim:ft=snippets:

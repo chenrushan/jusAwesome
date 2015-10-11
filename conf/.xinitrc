@@ -11,6 +11,7 @@ export QT_IM_MODULE="xim"
 
 # xsunpinyin -d &
 fcitx &
+sogou-qimpanel &
 
 # dropboxd &
 
@@ -84,6 +85,9 @@ nm-applet &
 #     (crontab -l 2>/dev/null; \
 #      echo 'DISPLAY=:0.0 feh --bg-scale "$(find ~/jusAwesome/wallpapers/ | shuf -n1)') | crontab -
 # fi
+
+# modify time
+sudo ntpd -qg &
 
 exec awesome
 

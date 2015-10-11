@@ -301,6 +301,7 @@ function Apps()
         vim-clang-complete-git # for auto-complete
         zukitwo-themes # many gtk2 and gtk3 themes
         google-chrome # replacement of firefox
+        sogou
     )
     
     InstallPkgAUR_Yaourt aur_apps[@]
