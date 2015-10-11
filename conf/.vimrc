@@ -285,7 +285,7 @@ set splitbelow
 
 " so that starting vim doesn't overwrite tmux theme
 let g:airline#extensions#tmuxline#enabled = 0
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 
 let g:NERDTreeWinSize = 25
 
