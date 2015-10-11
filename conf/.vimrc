@@ -252,7 +252,7 @@ let g:airline_powerline_fonts = 1
 " good candidates 'laederon', 'lucius', 'understated', 'wombat' 'bubblegum'
 " 'bubblegum' is good for green scheme
 " 'lucius' is good for black scheme
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'laederon'
 
 " ctrlp config
 let g:ctrlp_map = '<C-i>'
@@ -285,6 +285,16 @@ set splitbelow
 
 " so that starting vim doesn't overwrite tmux theme
 let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tabline#enabled = 0
 
 let g:NERDTreeWinSize = 25
+
+" for Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 

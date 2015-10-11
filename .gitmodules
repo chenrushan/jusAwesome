@@ -34,3 +34,6 @@
 [submodule "conf/.vim/bundle/nerdtree"]
 	path = conf/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "conf/.vim/bundle/vim-bufferline"]
+	path = conf/.vim/bundle/vim-bufferline
+	url = https://github.com/bling/vim-bufferline.git
