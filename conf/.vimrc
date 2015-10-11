@@ -248,7 +248,8 @@ execute pathogen#infect()
 " airline config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-" good candidates 'laederon', 'lucius', 'understated', 'wombat' 'bubblegum'
+" good candidates 'laederon', 'lucius', 'understated', 'wombat', 'bubblegum',
+" 'badwolf'
 " 'bubblegum' is good for green scheme
 " 'lucius' is good for black scheme
 let g:airline_theme = 'laederon'
@@ -287,13 +288,4 @@ let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#tabline#enabled = 0
 
 let g:NERDTreeWinSize = 25
-
-" for Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
