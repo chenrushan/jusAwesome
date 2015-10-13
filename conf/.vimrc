@@ -265,7 +265,7 @@ let g:ctrlp_custom_ignore = {
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-d>"
+let g:UltiSnipsJumpBackwardTrigger="<c-q>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -279,6 +279,7 @@ let g:ycm_complete_in_comments=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_add_preview_to_completeopt=1
 let g:ycm_autoclose_preview_window_after_insertion=1
+let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>d :YcmCompleter GoTo<CR>
 set previewheight=1
 set splitbelow
