@@ -52,6 +52,9 @@
 
     Reference: [alexeyshmalko.com](http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/)
 
+    YCM 有个很恶心的是，如果你的 .ycm_extra_conf.py 有问题，YCM 不提示错误就直接
+    不工作了，有的时候你莫名其妙为什么 clang-completer 就不好使了
+
 8. [tmuxline](https://github.com/edkolev/tmuxline.vim)
 
     Configure tmux status line from vim, and make tmux share the same theme as vim
