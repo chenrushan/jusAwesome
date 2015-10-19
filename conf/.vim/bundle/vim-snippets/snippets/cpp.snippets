@@ -58,9 +58,6 @@ snippet pro
 # public
 snippet pub
 	public
-# friend
-snippet fr
-	friend
 # mutable
 snippet mu
 	mutable
@@ -78,8 +75,9 @@ snippet cl
 		${0:/* data */}
 	};
 # member function implementation
-snippet mfun
-	${4:void} ${1:`vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}(${3}) {
+snippet mf
+	${1:void} ${2:`vim_snippets#Filename('$1', 'ClassName')`}::${3:memberFunction}(${4})
+	{
 		${0}
 	}
 # namespace
@@ -131,3 +129,21 @@ snippet lld
 	}
 snippet rt
 	return ${1:val};
+snippet fr
+	for (${1}; ${2}; ${3}) {
+		${4}
+	}
+snippet switch
+	switch (${1:/* variable */}) {
+		case ${2:/* variable case */}:
+			${3}
+			${4:break;}${5}
+		default:
+			${6}
+	}
+snippet case
+	case ${1:/* variable case */}:
+		${2}
+		${3:break;}
+snippet vs
+	vector<string> 
