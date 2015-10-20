@@ -290,3 +290,4 @@ let g:airline#extensions#tabline#enabled = 1
 
 let g:NERDTreeWinSize = 25
 
+nnoremap <leader>f :UniteWithProjectDir -start-insert file_rec/async<CR>
