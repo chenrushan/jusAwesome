@@ -195,7 +195,7 @@ inoremap <C-f> <right>
 
 nnoremap <C-p> :bprev<cr>
 nnoremap <C-n> :bnext<cr>
-nnoremap t :e 
+" nnoremap t :e 
 nnoremap <C-L> :nohl<cr><C-L>
 nnoremap <C-k> :bp<cr>:bd #<cr>
 nnoremap <leader>v :vsp<cr>
