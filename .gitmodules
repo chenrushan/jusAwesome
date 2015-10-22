@@ -22,3 +22,6 @@
 [submodule "conf/.vim/bundle/vimproc.vim"]
 	path = conf/.vim/bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "conf/.vim/bundle/L9"]
+	path = conf/.vim/bundle/L9
+	url = https://github.com/vim-scripts/L9.git
