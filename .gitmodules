@@ -25,3 +25,6 @@
 [submodule "conf/.vim/bundle/L9"]
 	path = conf/.vim/bundle/L9
 	url = https://github.com/vim-scripts/L9.git
+[submodule "conf/.vim/bundle/UltiSnips"]
+	path = conf/.vim/bundle/UltiSnips
+	url = https://github.com/vim-scripts/UltiSnips.git
