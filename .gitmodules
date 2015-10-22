@@ -1,9 +1,6 @@
 [submodule "conf/.vim/bundle/YouCompleteMe"]
 	path = conf/.vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule "conf/.vim/bundle/vim-fugitive"]
-	path = conf/.vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
 [submodule "conf/.vim/bundle/ultisnips"]
 	path = conf/.vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
