@@ -25,3 +25,9 @@
 [submodule "conf/.vim/bundle/nerdtree"]
 	path = conf/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "conf/.vim/bundle/unite.vim"]
+	path = conf/.vim/bundle/unite.vim
+	url = https://github.com/Shougo/unite.vim.git
+[submodule "conf/.vim/bundle/vimproc.vim"]
+	path = conf/.vim/bundle/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim.git
