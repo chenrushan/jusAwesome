@@ -80,6 +80,7 @@ snippet mf
 	{
 		${0}
 	}
+
 # namespace
 snippet ns
 	namespace ${1:`vim_snippets#Filename('', 'my')`} {
@@ -152,3 +153,5 @@ snippet pr
 # fprintf (again, this isn't as nice as TextMate's version, but it works)
 snippet fpr
 	fprintf(${1:stderr}, "${2:%s}\n"${3});
+snippet us
+	using namespace ${1:ns};${0}
