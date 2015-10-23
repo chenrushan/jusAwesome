@@ -28,3 +28,6 @@
 [submodule "conf/.vim/bundle/UltiSnips"]
 	path = conf/.vim/bundle/UltiSnips
 	url = https://github.com/vim-scripts/UltiSnips.git
+[submodule "conf/.vim/bundle/vim-fugitive"]
+	path = conf/.vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
