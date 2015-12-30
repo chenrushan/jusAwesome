@@ -135,8 +135,8 @@ snippet fr
 		${4}
 	}
 snippet sw
-	switch (${1:/* variable */}) {
-	case ${2:/* variable case */}:
+	switch (${1}) {
+	case ${2}:
 		${3}
 		${4:break;}${5}
 	default:
@@ -155,3 +155,9 @@ snippet fpr
 	fprintf(${1:stderr}, "${2:%s}\n"${3});
 snippet us
 	using namespace ${1:ns};${0}
+snippet --
+	// ----------------------------------------------------------------------
+
+snippet ==
+	// ======================================================================
+

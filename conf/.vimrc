@@ -93,7 +93,7 @@ endfunc
 
 au FileType c,cpp,java setlocal cindent
 au FileType tex,plaintex setlocal shiftwidth=2 tabstop=2
-au FileType python setlocal shiftwidth=2 tabstop=2
+au FileType python setlocal shiftwidth=4 tabstop=4
 au FileType java setlocal shiftwidth=2 tabstop=2
 au FileType lua setlocal shiftwidth=3 tabstop=3
 au FileType vim setlocal shiftwidth=2 tabstop=2
@@ -258,7 +258,7 @@ let g:airline_theme = 'laederon'
 let g:ctrlp_map = '<C-i>'
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\.git$\|\.yardoc\|public$|log\|tmp$\|target$\|project$',
-      \ 'file': '\v\~$|\.(class|o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+      \ 'file': '\v\~$|\.(class|o|d|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
       \ }
 " nnoremap <C-i> :CtrlPBuffer<cr>
 
