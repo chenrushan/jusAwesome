@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,7 +53,7 @@ plugins=(git vi-mode)
 
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/work/.local/bin:/home/work/bin"
+export PATH="/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/work/.local/bin:/home/work/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
