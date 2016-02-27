@@ -97,5 +97,6 @@ bindkey '^u' backward-kill-line
 
 alias f=fg
 alias gs='git status'
+alias gpo='git push origin'
 alias l='ls -l'
 alias ll='ls -al'
