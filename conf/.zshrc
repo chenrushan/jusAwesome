@@ -96,3 +96,4 @@ bindkey '^f' forward-char
 bindkey '^u' backward-kill-line
 
 alias f=fg
+alias gs='git status'
