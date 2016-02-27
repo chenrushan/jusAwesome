@@ -1,6 +1,6 @@
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 NEWLINE=$'\n'
-PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} %{$fg[green]%}(%(1j.%j.))%{$reset_color%} $(git_prompt_info)${NEWLINE}${ret_status}%{$reset_color%} '
+PROMPT='${NEWLINE}${ret_status} %(!.%F{red}.%F{cyan})%n%f@%F{yellow}%m%f%(!.%F{red}.)%#%f %{$fg[cyan]%}%c%{$reset_color%} %{$fg[green]%}(%(1j.%j.))%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
