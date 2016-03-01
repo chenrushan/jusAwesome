@@ -6,12 +6,6 @@
 
 3. [Vim-fugitive](https://github.com/tpope/vim-fugitive)
 
-4. [ctrlp](https://github.com/kien/ctrlp.vim)
-
-5. [vim-scala](https://github.com/derekwyatt/vim-scala)
-
-    only work with [FuzzyFinder](https://github.com/vim-scripts/FuzzyFinder) installed, which in turn needs [L9](https://github.com/vim-scripts/L9) to be installed
-
 6. [vim-snippets](https://github.com/honza/vim-snippets)
 
     should use with [ultisnips](https://github.com/SirVer/ultisnips)
@@ -58,3 +52,5 @@
 8. [tmuxline](https://github.com/edkolev/tmuxline.vim)
 
     Configure tmux status line from vim, and make tmux share the same theme as vim
+
+9. unite 需要 vimproc 才能正常工作，注意 vimproc 需要你手动 make 一下才能用
