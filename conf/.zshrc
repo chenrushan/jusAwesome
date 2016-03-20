@@ -101,3 +101,6 @@ alias gpo='git push origin'
 alias l='ls -l'
 alias ll='ls -al'
 alias rm='/bin/rm'
+alias ssloc='sslocal -s 45.78.37.35 -p 443 -k MzY2NmY4ND'
+
+export LANG=en_US.UTF-8
