@@ -101,3 +101,6 @@ alias gpo='git push origin'
 alias l='ls -l'
 alias ll='ls -al'
 alias rm='/bin/rm'
+alias swap_win_alt='setxkbmap -option altwin:swap_alt_win'
+alias swap_back_alt_win='setxkbmap -option'
+

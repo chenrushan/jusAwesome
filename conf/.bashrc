@@ -210,7 +210,7 @@ function promptCommand()
     fi
  
     # use only ASCII symbols in linux console
-    local DASH="\e(0q\e(B"
+    local DASH="-"
     local TC="\]\e(0l\e(B\]"
     local BC="\[\e(0\]m\[\e(B\]"
  
@@ -237,4 +237,3 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 # After each command, save and reload history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-

@@ -503,6 +503,18 @@ globalkeys = awful.util.table.join(
         function()
             awful.util.spawn("amixer set Master toggle", false)
         end),
+    awful.key({ "Control" }, "F11",
+        function()
+            awful.util.spawn("amixer set Master 5%+", false)
+        end),
+    awful.key({ "Control" }, "F10",
+        function()
+            awful.util.spawn("amixer set Master 5%-", false)
+        end),
+    awful.key({ "Control" }, "F9",
+        function()
+            awful.util.spawn("amixer set Master toggle", false)
+        end),
 
     -- Brightness control
     awful.key({     }, "XF86MonBrightnessDown",
