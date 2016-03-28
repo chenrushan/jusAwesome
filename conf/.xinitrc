@@ -64,7 +64,7 @@ while true; do sleep 0.3 && sh /home/juscodit/.vmguest.cmd && rm \
 # Note that there's a line 'altwin:swap_alt_win' under section
 # '! option', and this is what you use to swap alt and win key
 
-setxkbmap -option altwin:swap_alt_win
+# setxkbmap -option altwin:swap_alt_win
 # =================================================================
 
 # =================================================================
