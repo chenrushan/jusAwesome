@@ -227,7 +227,8 @@ colorscheme molokai
 " some modification to molokai
 
 " here's a list of prefered comment color: 65, 66, 72, 73, 101, 102, 109
-hi Comment cterm=italic,bold ctermfg=65
+"hi Comment cterm=italic,bold ctermfg=65
+hi Comment ctermfg=65
 " make vim background transparent
 hi Normal ctermfg=254 ctermbg=none
 " 22, 23, 24, 29, 36
@@ -247,7 +248,7 @@ execute pathogen#infect()
 
 " airline config
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 " good candidates 'laederon', 'lucius', 'understated', 'wombat', 'bubblegum',
 " 'badwolf'
 " 'bubblegum' is good for green scheme
