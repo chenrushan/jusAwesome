@@ -227,13 +227,12 @@ colorscheme molokai
 " some modification to molokai
 
 " here's a list of prefered comment color: 65, 66, 72, 73, 101, 102, 109
-"hi Comment cterm=italic,bold ctermfg=65
-hi Comment ctermfg=65
+hi Comment cterm=italic,bold ctermfg=65
 " make vim background transparent
 hi Normal ctermfg=254 ctermbg=none
 " 22, 23, 24, 29, 36
 " 22 good for green scheme
-hi ColorColumn ctermbg=22
+hi ColorColumn ctermbg=236
 
 " set rtp+=/usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
 
