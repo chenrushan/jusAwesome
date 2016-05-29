@@ -227,7 +227,7 @@ colorscheme molokai
 " some modification to molokai
 
 " here's a list of prefered comment color: 65, 66, 72, 73, 101, 102, 109
-hi Comment cterm=italic,bold ctermfg=65
+hi Comment cterm=italic,bold
 " make vim background transparent
 hi Normal ctermfg=254 ctermbg=none
 " 22, 23, 24, 29, 36

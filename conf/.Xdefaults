@@ -17,22 +17,23 @@ URxvt.perl-ext-common:      selection-to-clipboard
 ! enable real transparency
 URxvt.depth:                32
 !gray theme color
-!URxvt.background:           rgba:2222/2222/2222/eeee
+URxvt.background:           rgba:2222/2222/2222/dddd
 
 !green theme color
-URxvt.background:           rgba:1111/4444/3333/dddd
+!URxvt.background:           rgba:1111/4444/3333/dddd
 !URxvt.background:           rgba:1111/1111/1111/dddd
 URxvt.transparent:          false
 
 ! fonts
 URxvt.allow_bold:           false
-URxvt*font:                 xft:Monaco for Powerline:regular:size=10,xft:AR PL UKai CN:regular:size=11
-URxvt*imFont:               xft:Monaco for Powerline:regular:size=10,xft:AR PL UKai CN:regular:size=11
-URxvt*boldFont:             xft:Monaco for Powerline:bold:size=10,xft:AR PL UKai CN:bold:size=11
-URxvt*italicFont:           xft:Monaco for Powerline:italic:size=10,xft:AR PL UKai CN:italic:size=11
+URxvt*font:                 xft:Consolas:regular:size=13,xft:AR PL UKai CN:regular:size=12
+URxvt*imFont:               xft:Consolas:regular:size=13,xft:AR PL UKai CN:regular:size=12
+URxvt*boldFont:             xft:Consolas:bold:size=13,xft:AR PL UKai CN:bold:size=12
+URxvt*italicFont:           xft:Consolas:italic:size=13,xft:AR PL UKai CN:italic:size=12
+!URxvt*font:                 xft:DejaVu Sans Mono:regular:size=10,xft:AR PL UKai CN:regular:size=11
 ! Consolas font is great for bold and italic style
-URxvt*boldItalicFont:       xft:Consolas:bold:italic:size=9,xft:AR PL UKai CN:bold:italic:size=11
-URxvt*letterSpace:          -1
+URxvt*boldItalicFont:       xft:Consolas:bold:italic:size=10,xft:AR PL UKai CN:bold:italic:size=12
+URxvt*letterSpace:          -2
 
 ! dpi control the size of font
 Xft.dpi:        96
