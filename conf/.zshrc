@@ -104,6 +104,6 @@ alias ll='ls -al'
 alias rm='/bin/rm'
 alias swap_win_alt='setxkbmap -option altwin:swap_alt_win'
 alias swap_back_alt_win='setxkbmap -option'
-alias ssloc='sslocal -s 45.78.37.35 -p 443 -k MzY2NmY4ND'
+alias ssloc='sslocal -s 104.224.128.17 -p 443 -k ZTI3YTIyZm'
 
 export LANG=en_US.UTF-8
