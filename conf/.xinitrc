@@ -78,6 +78,7 @@ while true; do sleep 0.3 && sh /home/juscodit/.vmguest.cmd && rm \
 xset +fp /usr/share/fonts/local
 xset fp rehash
 nm-applet &
+~/jusAwesome/conf/.wallpaper.sh &
 
 # add crontab to change wallpaper constantly
 # crontab -l | grep -q feh && existed=true || existed=false
