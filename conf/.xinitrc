@@ -79,6 +79,7 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 nm-applet &
 ~/jusAwesome/conf/.wallpaper.sh &
+~/jusAwesome/conf/.battery_warning.sh &
 
 # add crontab to change wallpaper constantly
 # crontab -l | grep -q feh && existed=true || existed=false

@@ -35,6 +35,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -10"
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
 bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
 bindsym XF86AudioMute exec "amixer set Master toggle"
+bindsym $mod+n exec pkill i3-nagbar
 
 # kill focused window
 bindsym $mod+q kill
