@@ -78,6 +78,7 @@ export LANG="zh_CN.UTF-8"
 xset +fp /usr/share/fonts/local
 xset fp rehash
 nm-applet &
+~/jusAwesome/conf/.wallpaper.sh &
 
 # add crontab to change wallpaper constantly
 # crontab -l | grep -q feh && existed=true || existed=false
