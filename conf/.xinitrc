@@ -43,8 +43,8 @@ export LANG="zh_CN.UTF-8"
 #    that you should delete the file after execute it, otherwise,
 #    it will be run all the time.
 
-while true; do sleep 0.3 && sh /home/juscodit/.vmguest.cmd && rm \
-  /home/juscodit/.vmguest.cmd; done &
+#while true; do sleep 0.3 && sh /home/juscodit/.vmguest.cmd && rm \
+#  /home/juscodit/.vmguest.cmd; done &
 # =================================================================
 
 # =================================================================
@@ -89,5 +89,6 @@ nm-applet &
 # modify time
 sudo ntpd -qg &
 
-exec awesome
+#exec awesome
+exec i3
 
