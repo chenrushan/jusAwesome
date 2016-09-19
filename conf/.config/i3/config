@@ -29,7 +29,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+c exec google-chrome-stable
-bindsym $mod+l exec ~/.config/i3/i3lock-fancy-master/lock -f Consolas
+bindsym $mod+Shift+l exec ~/.config/i3/i3lock-fancy-master/lock -f Consolas
 bindsym XF86MonBrightnessUp exec "xbacklight +10"
 bindsym XF86MonBrightnessDown exec "xbacklight -10"
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
@@ -48,10 +48,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+semicolon focus right
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+h focus left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
