@@ -34,3 +34,9 @@
 [submodule "conf/.vim/bundle/vim-go"]
 	path = conf/.vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule "conf/.vim/bundle/tagbar"]
+	path = conf/.vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "conf/.vim/bundle/neocomplete.vim"]
+	path = conf/.vim/bundle/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
