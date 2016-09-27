@@ -17,7 +17,7 @@ URxvt.perl-ext-common:      selection-to-clipboard
 ! enable real transparency
 URxvt.depth:                32
 !gray theme color
-URxvt.background:           rgba:2222/2222/2222/dddd
+URxvt.background:           rgba:2222/2222/2222/eeee
 
 !green theme color
 !URxvt.background:           rgba:1111/4444/3333/dddd

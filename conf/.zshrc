@@ -107,3 +107,5 @@ alias swap_back_alt_win='setxkbmap -option'
 alias ssloc='sslocal -s 104.224.128.17 -p 443 -k ZTI3YTIyZm'
 
 export LANG=en_US.UTF-8
+export GOPATH=$HOME/.vim-go
+export PATH=$PATH:$GOPATH/bin/
