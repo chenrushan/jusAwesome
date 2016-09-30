@@ -3,89 +3,80 @@
 " E-Mail: juscodit@gmail.com
 "*******************************************************************************
 
-"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-"                            define some functions
-"-------------------------------------------------------------------------------
+" Plugins
+call plug#begin()
+Plug 'Valloric/YouCompleteMe'
+Plug 'rdnetto/YCM-Generator'
+Plug 'majutsushi/tagbar'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+"Plug 'edkolev/tmuxline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'fatih/vim-go'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'bbchung/Clamp'
+call plug#end()
 
-" This function creates a tag file in the root directory of a
-" project, which contains only non-static tags present in
-" all source files, but for this function to work, a file called
-" '.crsproj' needs to be created in the root directory
-fun! CrsCtagsProj()
-  let prevwd = getcwd()
+" airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 0
+" good candidates 'laederon', 'lucius', 'understated', 'wombat', 'bubblegum',
+" 'badwolf'
+" 'bubblegum' is good for green scheme
+" 'lucius' is good for black scheme
+let g:airline_theme = 'laederon'
 
-  " first we cd to the directory containing currently-editing file
-  exec "cd " . expand("%:p:h")
+" ctrlp config
+let g:ctrlp_map = '<C-i>'
+let g:ctrlp_custom_ignore = {
+      \ 'dir': '\.git$\|\.yardoc\|public$|log\|tmp$\|target$\|project$',
+      \ 'file': '\v\~$|\.(class|o|d|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+      \ }
+" nnoremap <C-i> :CtrlPBuffer<cr>
 
-  while filereadable(".crsproj") == 0
-    cd ..
-    if getcwd() == "/"
-      break
-    endif
-  endwhile
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-q>"
 
-  let crsproj = getcwd()
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
-  " I assume that no project will use '/' as its root directory
-  if crsproj == "/"
-    echo "\nno .crsproj is found\n"
-    return
-  endif
+" Solve the TAB key conflict between ycm and ultisnip
+" Disable YCM's use of TAB key, instead cycle through completion with <C-N> and <C-P> keys.
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_complete_in_comments=1
+let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_add_preview_to_completeopt=1
+let g:ycm_autoclose_preview_window_after_insertion=1
+let g:ycm_confirm_extra_conf = 0
+nnoremap <leader>d :YcmCompleter GoTo<CR>
+set previewheight=1
+set splitbelow
 
-  exec "cd " . prevwd
-  exec "sil !cd " . crsproj . ";"
-        \. "find -name '*.[hc]' -print0 -o -name '*.cpp' -print0 |"
-        \. "xargs -0 ctags --fields=+aS --extra=+q --file-scope=no &"
-endfun
+" so that starting vim doesn't overwrite tmux theme
+let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 
+let g:NERDTreeWinSize = 25
 
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom#source('file,file/new,buffer,file_rec,line', 'matchers', 'matcher_fuzzy')
+nnoremap <leader>z :<C-u>Unite -buffer-name=search -start-insert line<cr>
+nnoremap <leader>f :UniteWithProjectDir -start-insert file_rec/async<CR>
 
-"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-"                              vim sessions
-" (by http://www.terminally-incoherent.com/blog/2013/04/29/vim-sessions/)
-"-------------------------------------------------------------------------------
-
-let g:session_dir = $HOME."/.vim/sessions"
- 
-" Save sessions whenever vim closes
-" autocmd VimLeave * call SaveSession()
- 
-" Saves the session to session dir. Creates session dir if it doesn't
-" yet exist. Sessions are named after servername paameter
-function! SaveSession()
-
-  " get the server (session) name
-  let s = v:servername
-
-  " create session dir if needed
-  if !isdirectory(g:session_dir)
-    call mkdir(g:session_dir, "p")
-  endif
-
-  " save session using the server name
-  execute "mksession! ".g:session_dir."/".s.".session.vim"
-endfun
-
-" Load session when vim is opened
-" autocmd VimEnter * nested call OpenSession()
-
-" Open a saved session if there were no file-names passed as arguments
-" The session opened is based on servername (session name). If there
-" is no session for this server, none will be opened
-function! OpenSession()
-
-  " check if file names were passed as arguments
-  if argc() == 0
-
-    let sn = v:servername
-    let file = g:session_dir."/".sn.".session.vim"
-
-    " if session file exists, load it
-    if filereadable(file)
-      execute "source ".file
-    endif
-  endif
-endfunc
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 "                              set some autocmds
@@ -242,64 +233,3 @@ set undodir=$HOME/.vim/undo " where to save undo histories, dir should be create
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-" enable pathogen
-execute pathogen#infect()
-
-" airline config
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 0
-" good candidates 'laederon', 'lucius', 'understated', 'wombat', 'bubblegum',
-" 'badwolf'
-" 'bubblegum' is good for green scheme
-" 'lucius' is good for black scheme
-let g:airline_theme = 'laederon'
-
-" ctrlp config
-let g:ctrlp_map = '<C-i>'
-let g:ctrlp_custom_ignore = {
-      \ 'dir': '\.git$\|\.yardoc\|public$|log\|tmp$\|target$\|project$',
-      \ 'file': '\v\~$|\.(class|o|d|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-      \ }
-" nnoremap <C-i> :CtrlPBuffer<cr>
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-q>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" Solve the TAB key conflict between ycm and ultisnip
-" Disable YCM's use of TAB key, instead cycle through completion with <C-N> and <C-P> keys.
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_complete_in_comments=1
-let g:ycm_collect_identifiers_from_comments_and_strings=1
-let g:ycm_add_preview_to_completeopt=1
-let g:ycm_autoclose_preview_window_after_insertion=1
-let g:ycm_confirm_extra_conf = 0
-nnoremap <leader>d :YcmCompleter GoTo<CR>
-set previewheight=1
-set splitbelow
-
-" so that starting vim doesn't overwrite tmux theme
-let g:airline#extensions#tmuxline#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
-
-let g:NERDTreeWinSize = 25
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom#source('file,file/new,buffer,file_rec,line', 'matchers', 'matcher_fuzzy')
-nnoremap <leader>z :<C-u>Unite -buffer-name=search -start-insert line<cr>
-nnoremap <leader>f :UniteWithProjectDir -start-insert file_rec/async<CR>
-
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
