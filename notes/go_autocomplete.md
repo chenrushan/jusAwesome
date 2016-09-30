@@ -10,4 +10,5 @@
 由于我用的 YCM 实现 go 的 autocomplete，所以每次启动的都是 YCM 的 gocode，导致
 vim 中 autocomplete 失败
 
-解决办法，在 YCM 相关目录下创建一个 symlink 到 $GOPATH/bin/gocode
+解决办法，删除 YCM 使用的 gocode，并 ln -s $GOPATH/bin/gocode gocode
+
