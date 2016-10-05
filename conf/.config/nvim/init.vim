@@ -1,6 +1,7 @@
 " Plugins
 call plug#begin()
 Plug 'Valloric/YouCompleteMe'
+Plug 'rdnetto/YCM-Generator'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
@@ -10,6 +11,7 @@ Plug 'fatih/vim-go'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline-themes'
+"Plug 'bbchung/Clamp'
 call plug#end()
 
 let mapleader=","
@@ -55,9 +57,12 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
+let g:clamp_libclang_file = '/usr/lib/libclang.so'
+
 " ============================================================
 
-colorscheme monokai
+colorscheme molokai
+hi Normal ctermfg=254 ctermbg=none
 
 au FileType c,cpp,java setlocal cindent
 au FileType tex,plaintex setlocal shiftwidth=2 tabstop=2
@@ -87,6 +92,7 @@ set cursorline
 set linebreak
 set incsearch
 set mousehide
+set fileencodings=ucs-bom,utf-8,gb2312
 
 " this will facilitate the use of tags file when programming, since
 " generally a tags file is in the same directory as the current source

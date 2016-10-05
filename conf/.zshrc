@@ -102,10 +102,16 @@ alias gst='git stash'
 alias l='ls -l'
 alias ll='ls -al'
 alias rm='/bin/rm'
+if [[ -f /usr/bin/nvim ]]; then
+    alias vim=nvim
+    alias v=nvim
+else
+    alias v=vim
+fi
 alias swap_win_alt='setxkbmap -option altwin:swap_alt_win'
 alias swap_back_alt_win='setxkbmap -option'
 alias ssloc='sslocal -s 104.224.128.17 -p 443 -k ZTI3YTIyZm'
 
 export LANG=en_US.UTF-8
-export GOPATH=$HOME/.vim-go
+export GOPATH=$HOME/.gotools/
 export PATH=$PATH:$GOPATH/bin/
