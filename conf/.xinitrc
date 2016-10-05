@@ -80,6 +80,7 @@ xset fp rehash
 nm-applet &
 ~/jusAwesome/conf/.wallpaper.sh &
 ~/jusAwesome/conf/.battery_warning.sh &
+~/jusAwesome/conf/.shadowsocks.sh &
 
 # add crontab to change wallpaper constantly
 # crontab -l | grep -q feh && existed=true || existed=false
