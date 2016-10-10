@@ -29,7 +29,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+c exec google-chrome-stable
-bindsym $mod+Shift+l exec ~/.config/i3/i3lock-fancy-master/lock -f Consolas
+bindsym $mod+Ctrl+l exec ~/.config/i3/i3lock-fancy-master/lock -f Consolas
 bindsym XF86MonBrightnessUp exec "xbacklight +10"
 bindsym XF86MonBrightnessDown exec "xbacklight -10"
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
@@ -72,7 +72,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -179,3 +179,9 @@ client.focused #3b1261 #3b1261 #ffffff #662b9c
 client.focused_inactive #333333 #5f676a #ffffff #484e50
 client.unfocused #222222 #222222 #888888 #292d2e
 client.urgent #2f343a #900000 #ffffff #900000
+
+bindsym $mod+Ctrl+Right resize shrink width 10 px or 1 ppt
+bindsym $mod+Ctrl+Up resize grow height 10 px or 1 ppt
+bindsym $mod+Ctrl+Down resize shrink height 10 px or 1 ppt
+bindsym $mod+Ctrl+Left resize grow width 10 px or 1 ppt
+
