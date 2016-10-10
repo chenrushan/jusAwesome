@@ -145,4 +145,4 @@ set undofile                " Save undo's after file closes
 set undodir=$HOME/.config/nvim/undo " where to save undo histories, dir should be created manually
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
-
+set mouse=
