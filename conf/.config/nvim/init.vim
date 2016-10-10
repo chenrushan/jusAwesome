@@ -11,7 +11,10 @@ Plug 'fatih/vim-go'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
 "Plug 'bbchung/Clamp'
+"Plug 'Yggdroot/indentLine'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 let mapleader=","
@@ -59,10 +62,19 @@ let g:go_fmt_command = "goimports"
 
 let g:clamp_libclang_file = '/usr/lib/libclang.so'
 
+let g:indentLine_char = '┊'
+
+let g:clang_format#style_options = {
+      \ "AccessModifierOffset" : -4}
+au FileType c,cpp ClangFormatAutoEnable
+
 " ============================================================
 
 colorscheme molokai
 hi Normal ctermfg=254 ctermbg=none
+
+"colorscheme monokai
+"hi Normal ctermfg=254 ctermbg=none
 
 au FileType c,cpp,java setlocal cindent
 au FileType tex,plaintex setlocal shiftwidth=2 tabstop=2
