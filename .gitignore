@@ -3,3 +3,4 @@ conf/.vim/undo/**
 conf/.vim/sessions/**
 .ycm_extra_conf.pyc
 wallpapers/*
+__pycache__
