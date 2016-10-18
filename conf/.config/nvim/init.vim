@@ -66,6 +66,7 @@ let g:indentLine_char = '┊'
 
 let g:clang_format#style_options = {
       \ "AccessModifierOffset" : -4}
+let g:clang_format#detect_style_file = 1
 au FileType c,cpp ClangFormatAutoEnable
 
 " ============================================================
