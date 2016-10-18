@@ -1,0 +1,103 @@
+priority -50
+
+extends c
+
+# We want to overwrite everything in parent ft.
+priority -49
+
+###########################################################################
+#                            TextMate Snippets                            #
+###########################################################################
+snippet beginend "$1.begin(), $1.end() (beginend)"
+${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
+endsnippet
+
+snippet cl "class .. (class)"
+class ${1:`!p snip.rv = snip.basename or "name"`} {
+public:
+	~${1/(\w+).*/$1/}();
+
+private:
+};
+
+endsnippet
+
+snippet ns "namespace .. (namespace)"
+namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
+{
+	${VISUAL}${0}
+}${1/.+/ \/* /m}$1${1/.+/ *\/ /m}
+endsnippet
+
+snippet readfile "read file (readF)"
+std::vector<char> v;
+if (FILE *fp = fopen(${1:"filename"}, "r")) {
+	char buf[1024];
+	while(size_t len = fread(buf, 1, sizeof(buf), fp))
+		v.insert(v.end(), buf, buf + len);
+	fclose(fp);
+}
+endsnippet
+
+snippet map "std::map (map)"
+std::map<${1:key}, ${2:value}> map$0;
+endsnippet
+
+snippet vector "std::vector (v)"
+std::vector<${1:char}> v$0;
+endsnippet
+
+snippet tp "template <typename ..> (template)"
+template <typename ${1:_InputIter}>
+endsnippet
+
+snippet	nl "var == NULL" w
+${1:var} == NULL
+endsnippet
+
+snippet / "comment"
+/* ${VISUAL}${1} */${0}
+endsnippet
+
+snippet sz "sizeof(var)" w
+sizeof(${VISUAL}${1})${0}
+endsnippet
+
+snippet iff "if .. (if)"
+if (${VISUAL}) {
+	${0}
+}
+endsnippet
+
+snippet f "function" b
+${1:void} ${2:function_name}(${3})
+{
+	${VISUAL}${0}
+}
+
+endsnippet
+
+snippet enum "Enumeration"
+enum ${1:name} {
+	$0
+};
+
+endsnippet
+
+snippet fd "function declaration" b
+${1:void} ${2:function_name}(${3});${0}
+endsnippet
+
+snippet b "code block" b
+// {{{ ${1:do something}
+${VISUAL}${2}
+// }}}
+
+endsnippet
+
+snippet c "comment out" b
+#if 0
+${VISUAL}
+#endif
+endsnippet
+# vim:ft=snippets:
