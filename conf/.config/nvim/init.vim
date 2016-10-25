@@ -147,3 +147,13 @@ set undodir=$HOME/.config/nvim/undo " where to save undo histories, dir should b
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 set mouse=
+
+" ============================================================
+" for source file header
+" ============================================================
+
+au bufnewfile *.cpp,*.hpp 0r ~/.config/nvim/headers/cpp.header
+au bufnewfile *.cpp,*.hpp exe "1,6g/File Name :.*/s//File Name : " . expand("%")
+au bufnewfile *.cpp,*.hpp exe "1,6g/Creation Date :.*/s//Creation Date : " . strftime("%Y-%m-%d")
+au bufwritepre,filewritepre *.cpp,*.hpp exe "normal mm" | exe "1,6g/Last Modified :.*/s//Last Modified : " . strftime("%c") | exe "normal `m"
+
