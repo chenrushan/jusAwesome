@@ -15,6 +15,7 @@ Plug 'tpope/vim-fugitive'
 "Plug 'bbchung/Clamp'
 "Plug 'Yggdroot/indentLine'
 Plug 'rhysd/vim-clang-format'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 let mapleader=","
