@@ -16,6 +16,8 @@ Plug 'tpope/vim-fugitive'
 "Plug 'Yggdroot/indentLine'
 Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-surround'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 call plug#end()
 
 let mapleader=","
@@ -69,6 +71,8 @@ let g:clang_format#style_options = {
       \ "AccessModifierOffset" : -4}
 let g:clang_format#detect_style_file = 1
 au FileType c,cpp ClangFormatAutoEnable
+
+let g:notes_directories = ['~/notes']
 
 " ============================================================
 
