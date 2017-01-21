@@ -126,8 +126,8 @@ bindsym $mod+x move workspace to output right
 set $WS1 1
 set $WS2 2
 
-assign [instance="urxvt"] $WS1
-assign [class="chrome"] $WS2
+# assign [instance="urxvt"] $WS1
+# assign [class="chrome"] $WS2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -167,23 +167,22 @@ bindsym $mod+r mode "resize"
 bar {
   status_command i3blocks -c ~/jusAwesome/conf/.config/i3/i3blocks.conf
   colors {
-    separator #666666
-    background #000000
-    statusline #ffffff
-    focused_workspace #551a8b #551a8b #ffffff
-    active_workspace #333333 #5f676a #ffffff
-    inactive_workspace #000000 #000000 #888888
-    urgent_workspace #2f343a #900000 #ffffff
+    separator #888888
+    background #333333
+    statusline #FFFFFF
+    focused_workspace #4E9C00 #4E9C00 #FFFFFF
+    active_workspace #333333 #333333 #FFFFFF
+    inactive_workspace #333333 #333333 #888888
+    urgent_workspace #C20000 #C20000 #FFFFFF
   }
 }
-
-client.focused #3b1261 #3b1261 #ffffff #662b9c
-client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.unfocused #222222 #222222 #888888 #292d2e
-client.urgent #2f343a #900000 #ffffff #900000
 
 bindsym $mod+Ctrl+Right resize shrink width 10 px or 1 ppt
 bindsym $mod+Ctrl+Up resize grow height 10 px or 1 ppt
 bindsym $mod+Ctrl+Down resize shrink height 10 px or 1 ppt
 bindsym $mod+Ctrl+Left resize grow width 10 px or 1 ppt
 
+client.focused #4E9C00 #4E9C00 #FFFFFF #FFFFFF
+client.focused_inactive #1B3600 #1B3600 #888888 #FFFFFF
+client.unfocused #333333 #333333 #888888 #FFFFFF
+client.urgent #C20000 #C20000 #FFFFFF #FFFFFF
