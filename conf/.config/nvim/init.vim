@@ -145,6 +145,7 @@ nnoremap <leader>Q :qa<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :wq<cr>
 nnoremap <leader>s :saveas 
+nnoremap <silent> <Leader>t :NERDTreeFocus<CR>
 
 nnoremap j gj
 nnoremap k gk
