@@ -20,6 +20,7 @@ Plug 'xolox/vim-notes'
 Plug 'tpope/vim-surround'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 let mapleader=","
@@ -92,6 +93,7 @@ au FileType lua setlocal shiftwidth=3 tabstop=3
 au FileType vim setlocal shiftwidth=2 tabstop=2
 au FileType javascript setlocal shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.md setlocal filetype=markdown
+au VimEnter *  NERDTree
 
 set hidden " allows you to have unwritten changes to a file and open a new file
 set smartcase " ignore case if search pattern is all lowercase
