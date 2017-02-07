@@ -21,6 +21,7 @@ Plug 'tpope/vim-surround'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'scrooloose/nerdtree'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 let mapleader=","
@@ -76,6 +77,8 @@ let g:clang_format#detect_style_file = 1
 au FileType c,cpp ClangFormatAutoEnable
 
 let g:notes_directories = ['~/notes']
+
+map  <Leader>e <Plug>(easymotion-bd-w)
 
 " ============================================================
 
