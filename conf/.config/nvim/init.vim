@@ -77,6 +77,8 @@ au FileType c,cpp ClangFormatAutoEnable
 
 let g:notes_directories = ['~/notes']
 
+let g:NERDTreeWinSize=20
+
 " ============================================================
 
 colorscheme molokai
