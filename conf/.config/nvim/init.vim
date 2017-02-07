@@ -80,6 +80,8 @@ let g:notes_directories = ['~/notes']
 
 map  <Leader>e <Plug>(easymotion-bd-w)
 
+let g:NERDTreeWinSize=20
+
 " ============================================================
 
 colorscheme molokai
@@ -96,7 +98,9 @@ au FileType lua setlocal shiftwidth=3 tabstop=3
 au FileType vim setlocal shiftwidth=2 tabstop=2
 au FileType javascript setlocal shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.md setlocal filetype=markdown
-au VimEnter *  NERDTree
+au VimEnter * NERDTree
+" jump to the main window instead of staying in NERDTree window
+au VimEnter * wincmd p
 
 set hidden " allows you to have unwritten changes to a file and open a new file
 set smartcase " ignore case if search pattern is all lowercase
