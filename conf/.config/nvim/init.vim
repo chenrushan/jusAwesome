@@ -101,6 +101,22 @@ au BufNewFile,BufRead *.md setlocal filetype=markdown
 au VimEnter * NERDTree
 " jump to the main window instead of staying in NERDTree window
 au VimEnter * wincmd p
+" au BufEnter * NERDTreeFind<cr><C-w><C-w>
+
+" Check if NERDTree is open or active
+function! IsNERDTreeOpen()        
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
 
 set hidden " allows you to have unwritten changes to a file and open a new file
 set smartcase " ignore case if search pattern is all lowercase
