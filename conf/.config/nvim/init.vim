@@ -138,6 +138,7 @@ set linebreak
 set incsearch
 set mousehide
 set fileencodings=ucs-bom,utf-8,gb2312
+set nonumber
 
 " this will facilitate the use of tags file when programming, since
 " generally a tags file is in the same directory as the current source
@@ -185,8 +186,15 @@ set mouse=
 " for source file header
 " ============================================================
 
-au bufnewfile *.cpp,*.hpp 0r ~/.config/nvim/headers/cpp.header
-au bufnewfile *.cpp,*.hpp exe "1,6g/File Name :.*/s//File Name : " . expand("%")
-au bufnewfile *.cpp,*.hpp exe "1,6g/Creation Date :.*/s//Creation Date : " . strftime("%Y-%m-%d")
+function! AddHeaderForEmptyCppFile()
+  let wc = wordcount()
+  if wc.chars == 0
+    0r ~/.config/nvim/headers/cpp.header
+    exe "1,6g/File Name :.*/s//File Name : " . expand("%")
+    exe "1,6g/Creation Date :.*/s//Creation Date : " . strftime("%Y-%m-%d")
+  endif
+endfunction
+
+au FileType cpp,hpp call AddHeaderForEmptyCppFile()
 au bufwritepre,filewritepre *.cpp,*.hpp exe "normal mm" | exe "1,6g/Last Modified :.*/s//Last Modified : " . strftime("%c") | exe "normal `m"
 
