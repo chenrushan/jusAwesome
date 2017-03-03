@@ -80,7 +80,7 @@ let g:notes_directories = ['~/notes']
 
 map  <Leader>e <Plug>(easymotion-bd-w)
 
-let g:NERDTreeWinSize=20
+let g:NERDTreeWinSize=22
 
 " ============================================================
 
