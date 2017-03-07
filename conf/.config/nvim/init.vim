@@ -80,7 +80,7 @@ let g:notes_directories = ['~/notes']
 
 map  <Leader>e <Plug>(easymotion-bd-w)
 
-let g:NERDTreeWinSize=22
+let g:NERDTreeWinSize=20
 
 " ============================================================
 
@@ -138,7 +138,7 @@ set linebreak
 set incsearch
 set mousehide
 set fileencodings=ucs-bom,utf-8,gb2312
-set nonumber
+set number
 
 " this will facilitate the use of tags file when programming, since
 " generally a tags file is in the same directory as the current source
