@@ -11,7 +11,7 @@ export QT_IM_MODULE="xim"
 
 # xsunpinyin -d &
 fcitx &
-sogou-qimpanel &
+# sogou-qimpanel &
 
 # dropboxd &
 
