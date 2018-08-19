@@ -1,4 +1,4 @@
-compton -b &
+# compton -b &
 # xcompmgr -cCFf &
 # tint2 &
 # conky &
@@ -26,7 +26,7 @@ sogou-qimpanel &
 # Seems it's necessary to further set LANG as "zh_CN.UTF-8", since
 # it gives a prettier display of Chinese font.
 
-export LANG="zh_CN.UTF-8"
+export LC_ALL="en_US.UTF-8"
 # =================================================================
 
 # =================================================================
@@ -78,7 +78,8 @@ export LANG="zh_CN.UTF-8"
 xset +fp /usr/share/fonts/local
 xset fp rehash
 nm-applet &
-~/jusAwesome/conf/.wallpaper.sh &
+# ~/jusAwesome/conf/.wallpaper.sh &
+feh --bg-scale /home/juscodit/.wallpaper.jpg &
 ~/jusAwesome/conf/.battery_warning.sh &
 ~/jusAwesome/conf/.shadowsocks.sh &
 
@@ -91,6 +92,9 @@ nm-applet &
 
 # modify time
 sudo ntpd -qg &
+VBoxClient-all
+
+urxvt &
 
 #exec awesome
 exec i3
