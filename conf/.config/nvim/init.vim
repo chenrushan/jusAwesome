@@ -22,6 +22,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 let mapleader=","
@@ -44,6 +45,47 @@ let g:airline_powerline_fonts = 0
 " 'bubblegum' is good for green scheme
 " 'lucius' is good for black scheme
 let g:airline_theme = 'laederon'
+
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+  let g:airline_left_sep = ''
+  let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_symbols.crypt = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.maxlinenr = ''
+  let g:airline_symbols.maxlinenr = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.paste = ''
+  let g:airline_symbols.paste = ''
+  let g:airline_symbols.paste = ''
+  let g:airline_symbols.spell = ''
+  let g:airline_symbols.notexists = ''
+  let g:airline_symbols.whitespace = ''
+
+  " powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.maxlinenr = ''
+
+  " old vim-powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -74,7 +116,7 @@ let g:indentLine_char = '┊'
 let g:clang_format#style_options = {
       \ "AccessModifierOffset" : -4}
 let g:clang_format#detect_style_file = 1
-au FileType c,cpp ClangFormatAutoEnable
+" au FileType c,cpp ClangFormatAutoEnable
 
 let g:notes_directories = ['~/notes']
 
@@ -149,10 +191,6 @@ set autochdir
 " set a mark on column 80
 set colorcolumn=80
 
-inoremap " ""<left>
-inoremap [ []<left>
-inoremap ( ()<left>
-inoremap { {}<left>
 imap <C-l> <esc><C-l>zza
 inoremap <C-e> <end>
 inoremap <C-b> <left>
@@ -195,6 +233,6 @@ function! AddHeaderForEmptyCppFile()
   endif
 endfunction
 
-au FileType cpp,hpp call AddHeaderForEmptyCppFile()
-au bufwritepre,filewritepre *.cpp,*.hpp exe "normal mm" | exe "1,6g/Last Modified :.*/s//Last Modified : " . strftime("%c") | exe "normal `m"
+"au FileType cpp,hpp call AddHeaderForEmptyCppFile()
+"au bufwritepre,filewritepre *.cpp,*.hpp exe "normal mm" | exe "1,6g/Last Modified :.*/s//Last Modified : " . strftime("%c") | exe "normal `m"
 
