@@ -224,6 +224,10 @@ hi Normal ctermfg=254 ctermbg=none
 " 22, 23, 24, 29, 36
 " 22 good for green scheme
 hi ColorColumn ctermbg=236
+hi DiffAdd ctermbg=24
+hi DiffChange ctermbg=96
+hi DiffDelete ctermbg=52
+hi DiffText ctermbg=161
 
 " set rtp+=/usr/lib/python3.4/site-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim/
 
