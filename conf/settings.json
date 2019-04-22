@@ -1,0 +1,97 @@
+{
+    // basic
+    "window.zoomLevel": 2,
+    "editor.cursorBlinking": "solid",
+
+    // vim
+    "vim.leader": ",",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "w"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<leader>", "q"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["<C-f>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "cursorRight",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<C-e>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "cursorEnd",
+                    "args":[]
+                }
+            ]
+        },
+        {
+            "before": ["<C-b>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "cursorLeft",
+                    "args":[]
+                }
+            ]
+        }
+    ],
+
+    "editor.lineHeight": 17,
+    "workbench.colorTheme": "Monokai",
+    "terminal.integrated.shellArgs.windows": [],
+
+    // C/C++
+    "C_Cpp.intelliSenseEngine": "Default",
+    "clang.cxxflags": [
+        "-std=c++11",
+        "-Wall"
+    ],
+    "C_Cpp.errorSquiggles": "Disabled", // 用 clang 了，把默认的禁掉，默认的不好用
+    "clang.completion.enable": false, // clang completion 好像有点慢，用 vscode 自带的
+    "clang.diagnostic.delay": 0,
+    "editor.formatOnType": true,
+    "C_Cpp.clang_format_style": "Google",
+    "[cpp]": {
+        "editor.tabSize": 2,
+        // 这个必须全部都改成 true 不然有时候 auto complete 会不工作
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": true,
+            "strings": true
+        }
+    },
+    "explorer.confirmDelete": false
+}
+
