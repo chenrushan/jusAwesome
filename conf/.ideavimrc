@@ -1,0 +1,6 @@
+let mapleader = ","
+
+nnoremap <leader>w :w<cr>
+inoremap <c-b> <left>
+inoremap <c-e> <end>
+
